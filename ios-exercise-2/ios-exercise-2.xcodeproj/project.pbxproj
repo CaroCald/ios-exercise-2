@@ -13,6 +13,20 @@
 		8459DDAD2A1E6C3D0006DEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8459DDAB2A1E6C3D0006DEFC /* Main.storyboard */; };
 		8459DDAF2A1E6C3E0006DEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8459DDAE2A1E6C3E0006DEFC /* Assets.xcassets */; };
 		8459DDB22A1E6C3E0006DEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8459DDB02A1E6C3E0006DEFC /* LaunchScreen.storyboard */; };
+		8459DDBD2A1EBF440006DEFC /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDBC2A1EBF440006DEFC /* UserRequest.swift */; };
+		8459DDBF2A1EBF4F0006DEFC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDBE2A1EBF4F0006DEFC /* Product.swift */; };
+		8459DDC22A1EC1440006DEFC /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDC12A1EC1440006DEFC /* UserResponse.swift */; };
+		8459DDC52A1EC2CC0006DEFC /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDC42A1EC2CC0006DEFC /* ApiManager.swift */; };
+		8459DDC72A1EC3EF0006DEFC /* ApiManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDC62A1EC3EF0006DEFC /* ApiManagerDelegate.swift */; };
+		8459DDC92A1EC6810006DEFC /* ApiParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDC82A1EC6800006DEFC /* ApiParser.swift */; };
+		8459DDCD2A1FAD930006DEFC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDCC2A1FAD930006DEFC /* SessionManager.swift */; };
+		8459DDCF2A1FB6C20006DEFC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDCE2A1FB6C20006DEFC /* UserDefaultsManager.swift */; };
+		8459DDD52A1FCBF30006DEFC /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDD42A1FCBF30006DEFC /* PasswordViewController.swift */; };
+		8459DDD72A1FD7AA0006DEFC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDD62A1FD7AA0006DEFC /* AlertView.swift */; };
+		8459DDD92A1FE8CA0006DEFC /* ErrorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDD82A1FE8CA0006DEFC /* ErrorApi.swift */; };
+		8459DDDB2A1FECE50006DEFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDDA2A1FECE50006DEFC /* HomeViewController.swift */; };
+		8459DDDD2A1FFAB10006DEFC /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDDC2A1FFAB10006DEFC /* InfoViewController.swift */; };
+		8459DDDF2A1FFABE0006DEFC /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DDDE2A1FFABE0006DEFC /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +38,20 @@
 		8459DDAE2A1E6C3E0006DEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8459DDB12A1E6C3E0006DEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8459DDB32A1E6C3E0006DEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8459DDBC2A1EBF440006DEFC /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		8459DDBE2A1EBF4F0006DEFC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		8459DDC12A1EC1440006DEFC /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		8459DDC42A1EC2CC0006DEFC /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		8459DDC62A1EC3EF0006DEFC /* ApiManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerDelegate.swift; sourceTree = "<group>"; };
+		8459DDC82A1EC6800006DEFC /* ApiParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiParser.swift; sourceTree = "<group>"; };
+		8459DDCC2A1FAD930006DEFC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		8459DDCE2A1FB6C20006DEFC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		8459DDD42A1FCBF30006DEFC /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		8459DDD62A1FD7AA0006DEFC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		8459DDD82A1FE8CA0006DEFC /* ErrorApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorApi.swift; path = ../../../../../ErrorApi.swift; sourceTree = "<group>"; };
+		8459DDDA2A1FECE50006DEFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8459DDDC2A1FFAB10006DEFC /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		8459DDDE2A1FFABE0006DEFC /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +86,83 @@
 			children = (
 				8459DDA52A1E6C3D0006DEFC /* AppDelegate.swift */,
 				8459DDA72A1E6C3D0006DEFC /* SceneDelegate.swift */,
-				8459DDA92A1E6C3D0006DEFC /* ViewController.swift */,
-				8459DDAB2A1E6C3D0006DEFC /* Main.storyboard */,
+				8459DDBB2A1E71A90006DEFC /* Models */,
+				8459DDB92A1E6EB30006DEFC /* Controller */,
+				8459DDBA2A1E6EBD0006DEFC /* View */,
 				8459DDAE2A1E6C3E0006DEFC /* Assets.xcassets */,
 				8459DDB02A1E6C3E0006DEFC /* LaunchScreen.storyboard */,
 				8459DDB32A1E6C3E0006DEFC /* Info.plist */,
 			);
 			path = "ios-exercise-2";
+			sourceTree = "<group>";
+		};
+		8459DDB92A1E6EB30006DEFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDA92A1E6C3D0006DEFC /* ViewController.swift */,
+				8459DDD42A1FCBF30006DEFC /* PasswordViewController.swift */,
+				8459DDD62A1FD7AA0006DEFC /* AlertView.swift */,
+				8459DDDA2A1FECE50006DEFC /* HomeViewController.swift */,
+				8459DDDC2A1FFAB10006DEFC /* InfoViewController.swift */,
+				8459DDDE2A1FFABE0006DEFC /* ProductViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8459DDBA2A1E6EBD0006DEFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDAB2A1E6C3D0006DEFC /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8459DDBB2A1E71A90006DEFC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDCA2A1FAD5D0006DEFC /* ApiManager */,
+				8459DDCB2A1FAD790006DEFC /* Session */,
+				8459DDC02A1EC1330006DEFC /* User */,
+				8459DDC32A1EC2240006DEFC /* Product */,
+				8459DDCE2A1FB6C20006DEFC /* UserDefaultsManager.swift */,
+				8459DDD82A1FE8CA0006DEFC /* ErrorApi.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8459DDC02A1EC1330006DEFC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDBC2A1EBF440006DEFC /* UserRequest.swift */,
+				8459DDC12A1EC1440006DEFC /* UserResponse.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8459DDC32A1EC2240006DEFC /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDBE2A1EBF4F0006DEFC /* Product.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		8459DDCA2A1FAD5D0006DEFC /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDC82A1EC6800006DEFC /* ApiParser.swift */,
+				8459DDC62A1EC3EF0006DEFC /* ApiManagerDelegate.swift */,
+				8459DDC42A1EC2CC0006DEFC /* ApiManager.swift */,
+			);
+			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		8459DDCB2A1FAD790006DEFC /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				8459DDCC2A1FAD930006DEFC /* SessionManager.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +236,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8459DDBD2A1EBF440006DEFC /* UserRequest.swift in Sources */,
+				8459DDC92A1EC6810006DEFC /* ApiParser.swift in Sources */,
 				8459DDAA2A1E6C3D0006DEFC /* ViewController.swift in Sources */,
+				8459DDBF2A1EBF4F0006DEFC /* Product.swift in Sources */,
+				8459DDDF2A1FFABE0006DEFC /* ProductViewController.swift in Sources */,
+				8459DDCF2A1FB6C20006DEFC /* UserDefaultsManager.swift in Sources */,
+				8459DDDB2A1FECE50006DEFC /* HomeViewController.swift in Sources */,
+				8459DDD72A1FD7AA0006DEFC /* AlertView.swift in Sources */,
+				8459DDD52A1FCBF30006DEFC /* PasswordViewController.swift in Sources */,
+				8459DDC72A1EC3EF0006DEFC /* ApiManagerDelegate.swift in Sources */,
+				8459DDC52A1EC2CC0006DEFC /* ApiManager.swift in Sources */,
 				8459DDA62A1E6C3D0006DEFC /* AppDelegate.swift in Sources */,
 				8459DDA82A1E6C3D0006DEFC /* SceneDelegate.swift in Sources */,
+				8459DDD92A1FE8CA0006DEFC /* ErrorApi.swift in Sources */,
+				8459DDCD2A1FAD930006DEFC /* SessionManager.swift in Sources */,
+				8459DDDD2A1FFAB10006DEFC /* InfoViewController.swift in Sources */,
+				8459DDC22A1EC1440006DEFC /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
