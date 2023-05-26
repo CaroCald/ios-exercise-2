@@ -9,14 +9,25 @@ import Foundation
 
 struct ApiManager {
     let urlBase =  "https://dummyjson.com/"
+    let urlBaseTime = "https://worldtimeapi.org/api/timezone/America/Guayaquil"
     var delegate : ApiManagerDelegate?
     
     func doLogin (dataUser : UserRequest){
         let urlString = "\(urlBase)auth/login"
-        
         performPost(urlString, message: dataUser)
-
     }
+    
+    func getTime (){
+       performRequest(urlBaseTime)
+    }
+    
+    func getProductsList(){
+        let urlString = "\(urlBase)products"
+        print(urlString)
+        performRequest(urlString)
+    }
+    
+    
     
     func performPost(_ urlString : String, message: Encodable) {
         do {
@@ -65,5 +76,37 @@ struct ApiManager {
         
     }
     
+    func performRequest(_ urlString : String) {
+        
+        if let url = URL(string: urlString) {
+            
+            let session = URLSession(configuration: .default)
+            
+            let task = session.dataTask(with: url) { data, response, error in
+                
+                if error != nil{
+                    self.delegate?.apiError(with: error!)
+                    return
+                }
+                
+                if let safeData = data {
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode == 200 {
+                            self.delegate?.apiSucess(self, data: safeData)
+
+                        } else {
+                            self.delegate?.customErrorApi(with: safeData)
+
+                        }
+                     }
+                }
+            }
+            
+            task.resume()
+        }
+        
+    }
+    
+   
    
 }

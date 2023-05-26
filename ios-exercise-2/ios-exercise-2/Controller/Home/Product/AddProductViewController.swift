@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  AddProductViewController.swift
 //  ios-exercise-2
 //
 //  Created by Carolina Calderon on 25/5/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class AddProductViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  ProductViewController.swift
+//  InfoViewController.swift
 //  ios-exercise-2
 //
 //  Created by Carolina Calderon on 25/5/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductViewController: UIViewController {
+class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,16 @@ class ProductViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.parent?.title = "Info"
 
+    }
+    
+    @IBAction func editInfoPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "goToEditInfo", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

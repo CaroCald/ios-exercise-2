@@ -1,5 +1,5 @@
 //
-//  InfoViewController.swift
+//  EditInfoViewController.swift
 //  ios-exercise-2
 //
 //  Created by Carolina Calderon on 25/5/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InfoViewController: UIViewController {
+class EditInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

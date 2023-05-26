@@ -44,8 +44,10 @@ class PasswordViewController: UIViewController, AlertView {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let destination = segue.destination as! HomeViewController
-            //destination.userName = userTextField.text!
+        let destination = segue.destination as! UITabBarController
+        destination.navigationItem.hidesBackButton = true
+        
+        
     }
 
 }
