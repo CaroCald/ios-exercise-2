@@ -30,6 +30,9 @@
 		84A266222A200C5200E7B839 /* TimeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A266212A200C5200E7B839 /* TimeResults.swift */; };
 		84A266292A200DA300E7B839 /* ErrorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A266282A200DA300E7B839 /* ErrorApi.swift */; };
 		84A8EA932A216AFD0014C6CE /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8EA922A216AFD0014C6CE /* ProductListViewController.swift */; };
+		84A8EA952A2179690014C6CE /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8EA942A2179690014C6CE /* UserRepository.swift */; };
+		84A8EA972A217CA60014C6CE /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8EA962A217CA60014C6CE /* UserInformation.swift */; };
+		84A8EA992A218EBD0014C6CE /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8EA982A218EBD0014C6CE /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		84A266212A200C5200E7B839 /* TimeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeResults.swift; sourceTree = "<group>"; };
 		84A266282A200DA300E7B839 /* ErrorApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorApi.swift; sourceTree = "<group>"; };
 		84A8EA922A216AFD0014C6CE /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		84A8EA942A2179690014C6CE /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		84A8EA962A217CA60014C6CE /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		84A8EA982A218EBD0014C6CE /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 				84A266272A200D1300E7B839 /* Home */,
 				84A266262A200CFF00E7B839 /* Auth */,
 				8459DDD62A1FD7AA0006DEFC /* AlertView.swift */,
+				84A8EA982A218EBD0014C6CE /* SpinnerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 			children = (
 				8459DDBC2A1EBF440006DEFC /* UserRequest.swift */,
 				8459DDC12A1EC1440006DEFC /* UserResponse.swift */,
+				84A8EA962A217CA60014C6CE /* UserInformation.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 				8459DDC82A1EC6800006DEFC /* ApiParser.swift */,
 				8459DDC62A1EC3EF0006DEFC /* ApiManagerDelegate.swift */,
 				8459DDC42A1EC2CC0006DEFC /* ApiManager.swift */,
+				84A8EA942A2179690014C6CE /* UserRepository.swift */,
 			);
 			path = ApiManager;
 			sourceTree = "<group>";
@@ -306,7 +315,9 @@
 				8415A1182A2044EE007545AD /* AddProductViewController.swift in Sources */,
 				8459DDAA2A1E6C3D0006DEFC /* ViewController.swift in Sources */,
 				8459DDBF2A1EBF4F0006DEFC /* ProductList.swift in Sources */,
+				84A8EA972A217CA60014C6CE /* UserInformation.swift in Sources */,
 				8459DDCF2A1FB6C20006DEFC /* UserDefaultsManager.swift in Sources */,
+				84A8EA952A2179690014C6CE /* UserRepository.swift in Sources */,
 				8459DDDB2A1FECE50006DEFC /* HomeViewController.swift in Sources */,
 				8459DDD72A1FD7AA0006DEFC /* AlertView.swift in Sources */,
 				8459DDD52A1FCBF30006DEFC /* PasswordViewController.swift in Sources */,
@@ -315,6 +326,7 @@
 				8459DDC52A1EC2CC0006DEFC /* ApiManager.swift in Sources */,
 				8459DDA62A1E6C3D0006DEFC /* AppDelegate.swift in Sources */,
 				8459DDA82A1E6C3D0006DEFC /* SceneDelegate.swift in Sources */,
+				84A8EA992A218EBD0014C6CE /* SpinnerViewController.swift in Sources */,
 				84A266292A200DA300E7B839 /* ErrorApi.swift in Sources */,
 				84A8EA932A216AFD0014C6CE /* ProductListViewController.swift in Sources */,
 				84A266222A200C5200E7B839 /* TimeResults.swift in Sources */,

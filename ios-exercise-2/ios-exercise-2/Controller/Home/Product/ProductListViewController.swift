@@ -11,6 +11,7 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
     
     @IBOutlet weak var tableViewProducts: UITableView!
     var apiManager = ApiManager()
+    let spinner = SpinnerViewController()
 
     var arrayProducts : [Product] = []
     
@@ -20,6 +21,7 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
         self.tableViewProducts.delegate = self
         self.tableViewProducts.dataSource = self
         apiManager.delegate = self
+        createSpinnerView()
         apiManager.getProductsList()
     }
     
@@ -45,10 +47,26 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
         return cell
     }
     
+    func createSpinnerView() {
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+    }
+    
+    func dismissSpinner () {
+        self.spinner.willMove(toParent: nil)
+        self.spinner.view.removeFromSuperview()
+        self.spinner.removeFromParent()
+    }
+    
 }
 
 extension ProductListViewController : ApiManagerDelegate {
     func apiError(with error: Error) {
+        DispatchQueue.main.async {
+            self.dismissSpinner()
+        }
         showAlert(title: "Error", message: error.localizedDescription)
     }
     
@@ -56,6 +74,7 @@ extension ProductListViewController : ApiManagerDelegate {
         if let safeData : ProductList? = ApiParser().parseJson(data, delegate: self) {
             arrayProducts = safeData!.products
             DispatchQueue.main.async {
+                self.dismissSpinner()
                 self.tableViewProducts.reloadData()
             }
         }
@@ -63,6 +82,9 @@ extension ProductListViewController : ApiManagerDelegate {
     
     func customErrorApi(with error: Data) {
         let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
+        DispatchQueue.main.async {
+            self.dismissSpinner()
+        }
         showAlert(title: "Error", message: safeData?.message ?? "" )
     }
     

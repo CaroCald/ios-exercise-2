@@ -11,27 +11,32 @@ class PasswordViewController: UIViewController, AlertView {
 
     @IBOutlet weak var passwordTextField: UITextField!
     var apiManager = ApiManager()
+    var authRepo = UserRepository()
     var sessionManager = SessionManager.shared
     var userName : String = ""
+    let child = SpinnerViewController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.delegate = self
         apiManager.delegate = self
+        authRepo.delegate = self
 
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         doLogin()
-      
-
     }
+    
     func doLogin(){
+        createSpinnerView()
         if passwordTextField.text != nil {
             if !passwordTextField.text!.isEmpty {
                // let user = UserRequest(username: userName, password: passwordTextField.text ?? "")
                 let user = UserRequest(username: "kminchelle", password:  "0lelplR")
-                apiManager.doLogin(dataUser:user)
+                authRepo.doLogin(dataUser: user)
+                
 
             }else {
                 showAlert(title: "Error", message: "Ingresa tu contraseña")
@@ -47,7 +52,19 @@ class PasswordViewController: UIViewController, AlertView {
         let destination = segue.destination as! UITabBarController
         destination.navigationItem.hidesBackButton = true
         
-        
+    }
+    
+    func createSpinnerView() {
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+    
+    func dismissSpinner () {
+        self.child.willMove(toParent: nil)
+        self.child.view.removeFromSuperview()
+        self.child.removeFromParent()
     }
 
 }
@@ -68,12 +85,10 @@ extension PasswordViewController : ApiManagerDelegate {
         print(safeData ?? "default")
         
         DispatchQueue.main.async {
+            self.dismissSpinner()
             self.performSegue(withIdentifier: "goToHome", sender: self)
-
         }
         
-        
-        //print(sessionManager.getUserInfo()?.lastName)
     }
     
 }

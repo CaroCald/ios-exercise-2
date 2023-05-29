@@ -7,15 +7,11 @@
 
 import Foundation
 
-struct ApiManager {
+class ApiManager {
     let urlBase =  "https://dummyjson.com/"
     let urlBaseTime = "https://worldtimeapi.org/api/timezone/America/Guayaquil"
     var delegate : ApiManagerDelegate?
-    
-    func doLogin (dataUser : UserRequest){
-        let urlString = "\(urlBase)auth/login"
-        performPost(urlString, message: dataUser)
-    }
+
     
     func getTime (){
        performRequest(urlBaseTime)

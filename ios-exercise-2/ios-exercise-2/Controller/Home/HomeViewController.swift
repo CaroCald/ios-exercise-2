@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController, AlertView {
     var apiManager = ApiManager()
     var sessionManager = SessionManager.shared
+    let spinner = SpinnerViewController()
 
 
     @IBOutlet weak var hourLabel: UILabel!
@@ -18,15 +19,25 @@ class HomeViewController: UIViewController, AlertView {
     override func viewDidLoad() {
         super.viewDidLoad()
         apiManager.delegate = self
+        createSpinnerView()
         apiManager.getTime()
-       
-
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.parent?.title = "Home" 
+    }
+    
+    func createSpinnerView() {
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+    }
+    
+    func dismissSpinner () {
+        self.spinner.willMove(toParent: nil)
+        self.spinner.view.removeFromSuperview()
+        self.spinner.removeFromParent()
     }
 
 }
@@ -38,21 +49,27 @@ extension HomeViewController :  ApiManagerDelegate {
                 self.hourLabel.text = timeResponse?.datetime
                 self.dateLabel.text = timeResponse?.utcDatetime
                 self.userLabel.text = self.sessionManager.getUserInfo()?.username
+                self.dismissSpinner()
+
             }
             
         }
         
-        
-        // sessionManager.createSession(userData: safeData!)
     }
     
     func customErrorApi(with error: Data) {
         let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
+        DispatchQueue.main.async {
+            self.dismissSpinner()
+        }
         showAlert(title: "Error", message: safeData?.message ?? "" )
 
     }
     
     func apiError(with error: Error) {
+        DispatchQueue.main.async {
+            self.dismissSpinner()
+        }
         showAlert(title: "Error", message: error.localizedDescription)
     }
     
