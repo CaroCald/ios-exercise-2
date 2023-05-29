@@ -11,6 +11,7 @@ class HomeViewController: UIViewController, AlertView {
     var apiManager = ApiManager()
     var sessionManager = SessionManager.shared
     let spinner = SpinnerViewController()
+    let timeRepository = TimeRepository()
 
 
     @IBOutlet weak var hourLabel: UILabel!
@@ -19,8 +20,9 @@ class HomeViewController: UIViewController, AlertView {
     override func viewDidLoad() {
         super.viewDidLoad()
         apiManager.delegate = self
+        timeRepository.delegate = self
         createSpinnerView()
-        apiManager.getTime()
+        timeRepository.getTime()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -11,8 +11,8 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
     
     @IBOutlet weak var tableViewProducts: UITableView!
     var apiManager = ApiManager()
+    let productRepository = ProductRepository()
     let spinner = SpinnerViewController()
-
     var arrayProducts : [Product] = []
     
     
@@ -21,8 +21,9 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
         self.tableViewProducts.delegate = self
         self.tableViewProducts.dataSource = self
         apiManager.delegate = self
+        productRepository.delegate = self
         createSpinnerView()
-        apiManager.getProductsList()
+        productRepository.getProductsList()
     }
     
     override func viewDidAppear(_ animated: Bool) {

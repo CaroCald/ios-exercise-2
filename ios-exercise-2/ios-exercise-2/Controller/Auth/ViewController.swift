@@ -16,8 +16,9 @@ class ViewController: UIViewController, AlertView {
         super.viewDidLoad()
         userTextField.delegate = self
     
+        // check if user data is stored
         if sessionManager.getUserInfo() != nil {
-            self.performSegue(withIdentifier: "goToHome", sender: self)
+            //self.performSegue(withIdentifier: "goToHome", sender: self)
         }
     }
     

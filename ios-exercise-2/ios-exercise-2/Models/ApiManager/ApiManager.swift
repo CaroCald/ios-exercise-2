@@ -12,19 +12,6 @@ class ApiManager {
     let urlBaseTime = "https://worldtimeapi.org/api/timezone/America/Guayaquil"
     var delegate : ApiManagerDelegate?
 
-    
-    func getTime (){
-       performRequest(urlBaseTime)
-    }
-    
-    func getProductsList(){
-        let urlString = "\(urlBase)products"
-        print(urlString)
-        performRequest(urlString)
-    }
-    
-    
-    
     func performPost(_ urlString : String, message: Encodable) {
         do {
             if let url = URL(string: urlString) {

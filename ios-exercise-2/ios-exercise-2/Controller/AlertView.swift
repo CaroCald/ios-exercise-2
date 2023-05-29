@@ -12,11 +12,12 @@ import UIKit
 protocol AlertView { }
 extension AlertView where Self: UIViewController {
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, customHandler : ((UIAlertAction) -> ())? = nil) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in }
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: customHandler)
+                
         alertController.addAction(okAction)
         
         DispatchQueue.main.async {

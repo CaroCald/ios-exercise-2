@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="409"/>
+            <point key="canvasLocation" x="883" y="-4"/>
         </scene>
         <!--Password View Controller-->
         <scene sceneID="IC5-ud-COb">
@@ -300,7 +300,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbJ-g6-IVw">
                                                 <rect key="frame" x="0.0" y="323.33333333333331" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descuento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76j-Xy-FUg">
                                                 <rect key="frame" x="0.0" y="377.33333333333331" width="350" height="20.333333333333314"/>
@@ -311,7 +311,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G0w-eE-5jy">
                                                 <rect key="frame" x="0.0" y="417.66666666666669" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raiting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLe-Lm-zoD">
                                                 <rect key="frame" x="0.0" y="471.66666666666663" width="350" height="20.333333333333314"/>
@@ -322,7 +322,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="seg-fT-iRy">
                                                 <rect key="frame" x="0.0" y="512" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2v-Bu-89S">
                                                 <rect key="frame" x="0.0" y="566" width="350" height="20.333333333333371"/>
@@ -333,7 +333,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zEk-hx-D1b">
                                                 <rect key="frame" x="0.0" y="606.33333333333337" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8em-i1-pHL">
                                                 <rect key="frame" x="0.0" y="660.33333333333337" width="350" height="20.333333333333371"/>
@@ -372,6 +372,9 @@
                                                 <rect key="frame" x="0.0" y="943.33333333333326" width="350" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <connections>
+                                                    <action selector="addProductPressed:" destination="EYO-U7-bdc" eventType="touchUpInside" id="OOo-RM-DgZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -397,6 +400,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo Producto" id="cwv-yR-RMF"/>
+                    <connections>
+                        <outlet property="brandTextField" destination="IRM-cb-zE8" id="hrY-rg-yDa"/>
+                        <outlet property="categoryTextFiedl" destination="OxQ-iF-4bS" id="BcY-7Q-BY2"/>
+                        <outlet property="descriptionTextField" destination="VsH-ki-feV" id="GAR-sf-Lrt"/>
+                        <outlet property="discountTextField" destination="G0w-eE-5jy" id="k4s-dA-djr"/>
+                        <outlet property="priceTextField" destination="BbJ-g6-IVw" id="ssv-1s-ZOe"/>
+                        <outlet property="productTextField" destination="0Jo-Pd-kkI" id="3sr-uz-pCT"/>
+                        <outlet property="raitingTextFiedl" destination="seg-fT-iRy" id="mHR-3e-E4b"/>
+                        <outlet property="stockTextField" destination="zEk-hx-D1b" id="Gdj-Fe-iKF"/>
+                        <outlet property="titleTextField" destination="WNR-YI-3WD" id="ThR-wP-dXw"/>
+                        <outlet property="urlTextFiedl" destination="3gb-xs-Peh" id="Uss-k9-esS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZX-fc-9ED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,7 +581,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkK-oo-Yrq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4791" y="1"/>
+            <point key="canvasLocation" x="4380" y="-4"/>
         </scene>
         <!--Spinner View Controller-->
         <scene sceneID="g1l-ke-us9">
@@ -628,7 +643,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9k-aF-ItB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480" y="-3"/>
+            <point key="canvasLocation" x="2480" y="-4"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
