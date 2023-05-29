@@ -46,6 +46,13 @@ class InfoViewController: UIViewController, AlertView {
 
     }
     
+    @IBAction func closeSessionPressed(_ sender: UIButton) {
+        sessionManager.closeSession()
+        self.navigationController?.popToRootViewController(animated: true)
+
+    }
+    
+    
     func createSpinnerView() {
         addChild(spinner)
         spinner.view.frame = view.frame

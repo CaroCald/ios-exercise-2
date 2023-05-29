@@ -17,16 +17,18 @@ class SessionManager {
     }
     
     func getUserInfo () -> UserResponse? {
-        var test: UserResponse? = nil
+        var infoUser: UserResponse? = nil
         
         do {
-            test = try userDefaultManager.getData()
+            infoUser = try userDefaultManager.getData()
         } catch {
             print("Error")
         }
-
-        return test
-        
+        return infoUser
+    }
+    
+    func closeSession(){
+        userDefaultManager.removeAll()
     }
     
     

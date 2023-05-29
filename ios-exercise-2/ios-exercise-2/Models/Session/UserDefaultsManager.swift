@@ -41,5 +41,8 @@ class UserDefaultsManager {
         return nil
     }
     
+    func removeAll () {
+        userDefaults.removeObject(forKey: userKey)
+    }
     
 }

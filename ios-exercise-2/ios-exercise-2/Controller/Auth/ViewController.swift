@@ -8,23 +8,35 @@
 import UIKit
 
 class ViewController: UIViewController, AlertView {
-    
-
+    let sessionManager = SessionManager.shared
  
     @IBOutlet weak var userTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userTextField.delegate = self
+    
+        if sessionManager.getUserInfo() != nil {
+            self.performSegue(withIdentifier: "goToHome", sender: self)
+        }
     }
+    
+    
 
     @IBAction func continueButtonPressed(_ sender: UIButton) {
        continueFlow()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! PasswordViewController
-        destination.userName = userTextField.text!
+        if (segue.identifier == "goToHome") {
+            let destination = segue.destination as! UITabBarController
+            destination.navigationItem.hidesBackButton = true
+            
+        } else {
+            let destination = segue.destination as! PasswordViewController
+            destination.userName = userTextField.text!
+        }
+       
     }
     
     func continueFlow() {

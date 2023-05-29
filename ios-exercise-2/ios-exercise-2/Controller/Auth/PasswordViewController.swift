@@ -80,9 +80,9 @@ extension PasswordViewController : ApiManagerDelegate {
     }
     
     func apiSucess(_ apiManager: ApiManager, data: Data) {
-        let safeData : UserResponse? = ApiParser().parseJson(data, delegate: self)
-       // sessionManager.createSession(userData: safeData!)
-        print(safeData ?? "default")
+        if let safeData : UserResponse? = ApiParser().parseJson(data, delegate: self) {
+            sessionManager.createSession(userData: safeData!)
+        }
         
         DispatchQueue.main.async {
             self.dismissSpinner()
