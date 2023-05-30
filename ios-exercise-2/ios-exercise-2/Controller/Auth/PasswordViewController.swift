@@ -33,8 +33,8 @@ class PasswordViewController: UIViewController, AlertView {
         createSpinnerView()
         if passwordTextField.text != nil {
             if !passwordTextField.text!.isEmpty {
-               // let user = UserRequest(username: userName, password: passwordTextField.text ?? "")
-                let user = UserRequest(username: "kminchelle", password:  "0lelplR")
+                let user = UserRequest(username: userName, password: passwordTextField.text ?? "")
+                
                 authRepo.doLogin(dataUser: user)
                 
 
