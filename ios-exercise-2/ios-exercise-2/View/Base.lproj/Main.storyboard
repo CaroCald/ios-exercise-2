@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,7 +98,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-CP-WcH">
-                                <rect key="frame" x="135" y="645" width="141" height="34.666666666666629"/>
+                                <rect key="frame" x="100" y="645" width="190" height="34.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continuar"/>
                                 <connections>
@@ -116,8 +115,8 @@
                             <constraint firstItem="UML-XJ-luC" firstAttribute="top" secondItem="GBm-KG-oDB" secondAttribute="top" constant="354" id="J6y-x4-ldt"/>
                             <constraint firstItem="UML-XJ-luC" firstAttribute="leading" secondItem="5a7-5E-aOc" secondAttribute="leading" constant="87" id="SSO-ag-zJk"/>
                             <constraint firstItem="HcP-cH-kuc" firstAttribute="leading" secondItem="5a7-5E-aOc" secondAttribute="leading" constant="79" id="cM6-ld-hZQ"/>
-                            <constraint firstItem="5a7-5E-aOc" firstAttribute="trailing" secondItem="5xe-CP-WcH" secondAttribute="trailing" constant="114" id="eIx-pg-jrf"/>
-                            <constraint firstItem="5xe-CP-WcH" firstAttribute="leading" secondItem="5a7-5E-aOc" secondAttribute="leading" constant="135" id="fur-nU-gfF"/>
+                            <constraint firstItem="5a7-5E-aOc" firstAttribute="trailing" secondItem="5xe-CP-WcH" secondAttribute="trailing" constant="100" id="eIx-pg-jrf"/>
+                            <constraint firstItem="5xe-CP-WcH" firstAttribute="leading" secondItem="5a7-5E-aOc" secondAttribute="leading" constant="100" id="fur-nU-gfF"/>
                             <constraint firstItem="UML-XJ-luC" firstAttribute="top" secondItem="HcP-cH-kuc" secondAttribute="bottom" constant="63" id="jP6-Oh-NKx"/>
                         </constraints>
                     </view>
@@ -139,23 +138,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="157" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-9i-Hf9">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="157" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-9i-Hf9">
                                 <rect key="frame" x="69" y="197" width="252" height="375"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-x2-QQt">
-                                        <rect key="frame" x="0.0" y="0.0" width="252" height="20.333333333333332"/>
+                                        <rect key="frame" x="96.666666666666657" y="0.0" width="58.666666666666657" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAB-WI-cBr">
-                                        <rect key="frame" x="0.0" y="177.33333333333331" width="252" height="20.333333333333343"/>
+                                        <rect key="frame" x="103" y="177.33333333333331" width="46.333333333333343" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVf-pQ-jGr">
-                                        <rect key="frame" x="0.0" y="354.66666666666663" width="252" height="20.333333333333314"/>
+                                        <rect key="frame" x="107.66666666666666" y="354.66666666666663" width="37" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -371,7 +370,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4k-QC-RSA">
                                                 <rect key="frame" x="0.0" y="943.33333333333326" width="350" height="34.333333333333371"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Guardar producto"/>
                                                 <connections>
                                                     <action selector="addProductPressed:" destination="EYO-U7-bdc" eventType="touchUpInside" id="OOo-RM-DgZ"/>
                                                 </connections>
@@ -583,21 +582,6 @@
             </objects>
             <point key="canvasLocation" x="4380" y="-4"/>
         </scene>
-        <!--Spinner View Controller-->
-        <scene sceneID="g1l-ke-us9">
-            <objects>
-                <viewController id="NIx-0z-hMk" customClass="SpinnerViewController" customModule="ios_exercise_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bM0-xg-eR0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="cyS-aJ-k6M"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Cj-K4-vrs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="46" y="-700"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q6j-xd-b0d">
             <objects>
@@ -607,7 +591,7 @@
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -647,14 +631,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DYu-z9-SZa"/>
+        <segue reference="8Oc-i9-TU1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="deskclock.fill" catalog="system" width="128" height="125"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -22,12 +22,16 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
         self.tableViewProducts.dataSource = self
         apiManager.delegate = self
         productRepository.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         createSpinnerView()
         productRepository.getProductsList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.parent?.title = "Product"
+        self.parent?.title = Constants.productTitle
 
     }
     
@@ -68,7 +72,7 @@ extension ProductListViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: error.localizedDescription)
+        showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
     func apiSucess(_ apiManager: ApiManager, data: Data) {
@@ -86,7 +90,7 @@ extension ProductListViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: safeData?.message ?? "" )
+        showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
     }
     
     

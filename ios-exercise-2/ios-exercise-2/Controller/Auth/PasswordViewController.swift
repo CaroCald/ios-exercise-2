@@ -39,12 +39,11 @@ class PasswordViewController: UIViewController, AlertView {
                 
 
             }else {
-                showAlert(title: "Error", message: "Ingresa tu contraseña")
+                showAlert(title: Constants.errorTitle, message: Constants.passwordMsg)
             }
 
         } else {
-            showAlert(title: "Error", message: "Ingresa tu contraseña")
-        }
+            showAlert(title: Constants.errorTitle, message: Constants.passwordMsg)        }
         
     }
     
@@ -71,12 +70,12 @@ class PasswordViewController: UIViewController, AlertView {
 extension PasswordViewController : ApiManagerDelegate {
     func customErrorApi(with error: Data) {
         let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
-        showAlert(title: "Error", message: safeData?.message ?? "" )
+        showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
 
     }
     
     func apiError(with error: Error) {
-        showAlert(title: "Error", message: error.localizedDescription)
+        showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
     func apiSucess(_ apiManager: ApiManager, data: Data) {
@@ -86,7 +85,7 @@ extension PasswordViewController : ApiManagerDelegate {
         
         DispatchQueue.main.async {
             self.dismissSpinner()
-            self.performSegue(withIdentifier: "goToHome", sender: self)
+            self.performSegue(withIdentifier: Constants.routeGoHome, sender: self)
         }
         
     }
@@ -109,7 +108,7 @@ extension PasswordViewController : UITextFieldDelegate {
         if textField.text != "" {
             return  true
         } else {
-            textField.placeholder = "Ingresa un usuario"
+            textField.placeholder = Constants.passwordMsg
             return false
         }
     }

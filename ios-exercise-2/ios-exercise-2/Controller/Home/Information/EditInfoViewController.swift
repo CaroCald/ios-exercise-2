@@ -28,10 +28,10 @@ class EditInfoViewController: UIViewController, AlertView, ValidationDelegate {
         adressTextField.text = userInfo?.address.address
         phoneTextField.text = userInfo?.phone
         
-        validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule(message: "Email inválido")])
-        validator.registerField(phoneTextField, rules: [RequiredRule(message: "Telefono requerido"), MinLengthRule(length: 9)])
-        validator.registerField(adressTextField, rules: [RequiredRule(message: "Direccion requerida")])
-        validator.registerField(nameTextField, rules: [RequiredRule(message: "Nombre requerido")])
+        validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule(message: Constants.emailValidation)])
+        validator.registerField(phoneTextField, rules: [RequiredRule(message: Constants.phoneValidation), MinLengthRule(length: 9)])
+        validator.registerField(adressTextField, rules: [RequiredRule(message: Constants.addressValidation)])
+        validator.registerField(nameTextField, rules: [RequiredRule(message: Constants.nameValidation)])
 
     }
    
@@ -44,7 +44,7 @@ class EditInfoViewController: UIViewController, AlertView, ValidationDelegate {
     
     func validationSuccessful() {
         
-        showAlert(title: "Informacion", message: "Informacion guardada con exito") { _ in
+        showAlert(title: Constants.infoTitle, message: Constants.infoSuccess) { _ in
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -57,7 +57,7 @@ class EditInfoViewController: UIViewController, AlertView, ValidationDelegate {
         
           }
         if !errorMessagesTotal.isEmpty {
-            showAlert(title: "Error", message: errorMessagesTotal)
+            showAlert(title: Constants.errorTitle, message: errorMessagesTotal)
         }
     }
     

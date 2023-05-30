@@ -8,8 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController, AlertView {
+    
     let sessionManager = SessionManager.shared
- 
     @IBOutlet weak var userTextField: UITextField!
     
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ViewController: UIViewController, AlertView {
     
         // check if user data is stored
         if sessionManager.getUserInfo() != nil {
-            //self.performSegue(withIdentifier: "goToHome", sender: self)
+            self.performSegue(withIdentifier: Constants.routeGoHome, sender: self)
         }
     }
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController, AlertView {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "goToHome") {
+        if (segue.identifier == Constants.routeGoHome) {
             let destination = segue.destination as! UITabBarController
             destination.navigationItem.hidesBackButton = true
             
@@ -43,15 +43,14 @@ class ViewController: UIViewController, AlertView {
     func continueFlow() {
         if userTextField.text != nil {
             if !userTextField.text!.isEmpty {
-                performSegue(withIdentifier: "goToPassword", sender: self)
+                performSegue(withIdentifier: Constants.routeGoPassword, sender: self)
 
             }else {
-                showAlert(title: "Error", message: "Ingresa un usuario")
+                showAlert(title: Constants.errorTitle, message: Constants.userMessage)
             }
 
         } else {
-            showAlert(title: "Error", message: "Ingresa un usuario")
-        }
+            showAlert(title: Constants.errorTitle, message: Constants.userMessage)        }
     }
     
 }
@@ -73,7 +72,7 @@ extension ViewController : UITextFieldDelegate {
         if textField.text != "" {
             return  true
         } else {
-            textField.placeholder = "Ingresa un usuario"
+            textField.placeholder = Constants.userMessage
             return false
         }
     }

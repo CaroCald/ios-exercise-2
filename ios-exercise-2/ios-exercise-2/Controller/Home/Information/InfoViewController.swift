@@ -25,13 +25,29 @@ class InfoViewController: UIViewController, AlertView {
         super.viewDidLoad()
         apiManager.delegate = self
         authRepo.delegate = self
-        createSpinnerView()
-        authRepo.getInfoLogin(id: sessionManager.getUserInfo()!.id!)
+        
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        createSpinnerView()
+        authRepo.getInfoLogin(id: sessionManager.getUserInfo()!.id!)
+    }
+    
+    func createSpinnerView() {
+            addChild(spinner)
+            spinner.view.frame = view.frame
+            view.addSubview(spinner.view)
+            spinner.didMove(toParent: self)
+        }
+        
+        func dismissSpinner () {
+            self.spinner.willMove(toParent: nil)
+            self.spinner.view.removeFromSuperview()
+            self.spinner.removeFromParent()
+        }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.parent?.title = "Info"
+        self.parent?.title = Constants.infoTitle
 
     }
     
@@ -52,20 +68,6 @@ class InfoViewController: UIViewController, AlertView {
 
     }
     
-    
-    func createSpinnerView() {
-        addChild(spinner)
-        spinner.view.frame = view.frame
-        view.addSubview(spinner.view)
-        spinner.didMove(toParent: self)
-    }
-    
-    func dismissSpinner () {
-        self.spinner.willMove(toParent: nil)
-        self.spinner.view.removeFromSuperview()
-        self.spinner.removeFromParent()
-    }
-    
     func updateUI(userInfo : UserInformation){
         DispatchQueue.main.async {
             self.userInfo = userInfo
@@ -84,7 +86,7 @@ extension InfoViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: error.localizedDescription)
+        showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
     func apiSucess(_ apiManager: ApiManager, data: Data) {
@@ -98,7 +100,7 @@ extension InfoViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: safeData?.message ?? "" )
+        showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
     }
     
 }

@@ -33,15 +33,15 @@ class AddProductViewController: UIViewController, ValidationDelegate, AlertView 
         apiManager.delegate = self
         productRepository.delegate = self
 
-        validator.registerField(titleTextField, rules: [RequiredRule(message: "Titulo requerido")])
-        validator.registerField(descriptionTextField, rules: [RequiredRule(message: "Descripcion requerido")])
-        validator.registerField(productTextField, rules: [RequiredRule(message: "Producto requerido")])
-        validator.registerField(priceTextField, rules: [RequiredRule(message: "Precio requerido")])
-        validator.registerField(discountTextField, rules: [RequiredRule(message: "Descuento requerido")])
-        validator.registerField(raitingTextFiedl, rules: [RequiredRule(message: "Raiting requerido")])
-        validator.registerField(stockTextField, rules: [RequiredRule(message: "Stock requerido")])
-        validator.registerField(brandTextField, rules: [RequiredRule(message: "Marca requerido")])
-        validator.registerField(urlTextFiedl, rules: [RequiredRule(message: "Url requerido")])
+        validator.registerField(titleTextField, rules: [RequiredRule(message: Constants.titleValidation)])
+        validator.registerField(descriptionTextField, rules: [RequiredRule(message: Constants.descriptionValidation)])
+        validator.registerField(productTextField, rules: [RequiredRule(message: Constants.productValidation)])
+        validator.registerField(priceTextField, rules: [RequiredRule(message: Constants.priceValidation)])
+        validator.registerField(discountTextField, rules: [RequiredRule(message: Constants.priceValidation)])
+        validator.registerField(raitingTextFiedl, rules: [RequiredRule(message: Constants.ratingValidation)])
+        validator.registerField(stockTextField, rules: [RequiredRule(message: Constants.stockValidation)])
+        validator.registerField(brandTextField, rules: [RequiredRule(message: Constants.brandValidation)])
+        validator.registerField(urlTextFiedl, rules: [RequiredRule(message: Constants.urlValidation)])
 
 
     }
@@ -49,13 +49,13 @@ class AddProductViewController: UIViewController, ValidationDelegate, AlertView 
 
     @IBAction func addProductPressed(_ sender: UIButton) {
         validator.validate(self)
-        createSpinnerView()
 
     }
     
     func validationSuccessful() {
+        createSpinnerView()
+
         let productData = Product( id: 1, title: titleTextField.text!, description: descriptionTextField.text!, price: Int(priceTextField.text!)!, discountPercentage: Double(discountTextField.text!)!, rating: Double(raitingTextFiedl.text!)!, stock: Int(stockTextField.text!)!, brand: brandTextField.text!, category: categoryTextFiedl.text!, thumbnail: urlTextFiedl.text!, images: [urlTextFiedl.text!])
-        print(productData)
         productRepository.addProduct(product: productData)
        
     }
@@ -68,7 +68,7 @@ class AddProductViewController: UIViewController, ValidationDelegate, AlertView 
         
           }
         if !errorMessagesTotal.isEmpty {
-            showAlert(title: "Error", message: errorMessagesTotal)
+            showAlert(title: Constants.errorTitle, message: errorMessagesTotal)
         }
     }
     
@@ -91,14 +91,14 @@ extension AddProductViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: error.localizedDescription)
+        showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
     func apiSucess(_ apiManager: ApiManager, data: Data) {
     
         if let safeData : ProductResponse? = ApiParser().parseJson(data, delegate: self) {
             print(safeData!)
-            showAlert(title: "Informacion", message: "Producto agregado con exito") { _ in
+            showAlert(title: Constants.infoTitle, message: Constants.productSucess) { _ in
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -109,7 +109,7 @@ extension AddProductViewController : ApiManagerDelegate {
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: "Error", message: safeData?.message ?? "" )
+        showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
     }
     
 }

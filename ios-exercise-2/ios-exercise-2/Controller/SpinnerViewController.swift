@@ -9,7 +9,9 @@ import UIKit
 
 class SpinnerViewController: UIViewController {
 
+
     var spinner = UIActivityIndicatorView()
+
 
         override func loadView() {
             view = UIView()
@@ -23,7 +25,5 @@ class SpinnerViewController: UIViewController {
             spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
     
-    
 
 }
-
