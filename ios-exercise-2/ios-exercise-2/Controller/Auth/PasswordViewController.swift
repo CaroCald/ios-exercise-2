@@ -69,12 +69,20 @@ class PasswordViewController: UIViewController, AlertView {
 }
 extension PasswordViewController : ApiManagerDelegate {
     func customErrorApi(with error: Data) {
+        DispatchQueue.main.async{
+            self.dismissSpinner()
+
+        }
         let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
         showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
 
     }
     
     func apiError(with error: Error) {
+        DispatchQueue.main.async{
+            self.dismissSpinner()
+
+        }
         showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     

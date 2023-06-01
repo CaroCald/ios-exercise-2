@@ -68,6 +68,7 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
 }
 
 extension ProductListViewController : ApiManagerDelegate {
+    
     func apiError(with error: Error) {
         DispatchQueue.main.async {
             self.dismissSpinner()
