@@ -25,9 +25,8 @@ class InfoViewController: UIViewController, AlertView {
         super.viewDidLoad()
         apiManager.delegate = self
         authRepo.delegate = self
-        
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         createSpinnerView()
         authRepo.getInfoLogin(id: sessionManager.getUserInfo()!.id!)
@@ -57,17 +56,16 @@ class InfoViewController: UIViewController, AlertView {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! EditInfoViewController
-       dest.userInfo = self.userInfo
+    
+        if (segue.identifier == "goToEditInfo") {
+            let dest = segue.destination as! EditInfoViewController
+           dest.userInfo = self.userInfo
+        }
+       
 
     }
     
-    @IBAction func closeSessionPressed(_ sender: UIButton) {
-        sessionManager.closeSession()
-        self.navigationController?.popToRootViewController(animated: true)
 
-    }
-    
     func updateUI(userInfo : UserInformation){
         DispatchQueue.main.async {
             self.userInfo = userInfo

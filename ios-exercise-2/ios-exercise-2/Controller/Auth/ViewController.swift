@@ -22,6 +22,9 @@ class ViewController: UIViewController, AlertView {
         }
     }
     
+    @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
+        sessionManager.closeSession()
+    }
     
 
     @IBAction func continueButtonPressed(_ sender: UIButton) {
