@@ -28,7 +28,8 @@ class ViewController: UIViewController, AlertView {
     
 
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-       continueFlow()
+        userTextField.endEditing( true)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +54,9 @@ class ViewController: UIViewController, AlertView {
             }
 
         } else {
-            showAlert(title: Constants.errorTitle, message: Constants.userMessage)        }
+            showAlert(title: Constants.errorTitle, message: Constants.userMessage)
+            
+        }
     }
     
 }

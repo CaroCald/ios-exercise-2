@@ -10,10 +10,13 @@ import Foundation
 struct UserResponse : Codable {
     
     let id: Int?
-    let username, email, firstName, lastName: String
-    let gender: String
-    let image: String
-    let token: String
+    let username: String?
+    let email: String?
+    let firstName: String?
+    let lastName: String?
+    let gender: String?
+    let image: String?
+    let token: String?
     
     
 }

@@ -26,7 +26,7 @@ class PasswordViewController: UIViewController, AlertView {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        doLogin()
+        passwordTextField.endEditing( true)
     }
     
     func doLogin(){
