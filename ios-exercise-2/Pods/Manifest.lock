@@ -1,14 +1,17 @@
 PODS:
   - IQKeyboardManagerSwift (6.3.0)
   - SwiftValidator (4.0.0)
+  - Swifty (1.3.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 6.3.0)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
+  - Swifty
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - IQKeyboardManagerSwift
+    - Swifty
 
 EXTERNAL SOURCES:
   SwiftValidator:
@@ -23,7 +26,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
+  Swifty: 30310fcfaa8072a0eec56c00127b2065b8517f7f
 
-PODFILE CHECKSUM: 97515ecb2a85aa8ec7cde34a7ebace20387fce93
+PODFILE CHECKSUM: c4416b8e95760ee83ddce68483cded443d473ebd
 
 COCOAPODS: 1.12.1
