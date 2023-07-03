@@ -8,7 +8,7 @@
 import UIKit
 import SwiftValidator
 
-class AddProductViewController: UIViewController, ValidationDelegate, AlertView {
+class AddProductViewController: UIViewController, AlertView {
 
     let productRepository = ProductRepository()
     let validator = Validator()
@@ -18,7 +18,6 @@ class AddProductViewController: UIViewController, ValidationDelegate, AlertView 
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var productTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var discountTextField: UITextField!
     @IBOutlet weak var raitingTextFiedl: UITextField!
@@ -33,45 +32,49 @@ class AddProductViewController: UIViewController, ValidationDelegate, AlertView 
         apiManager.delegate = self
         productRepository.delegate = self
 
-        validator.registerField(titleTextField, rules: [RequiredRule(message: Constants.titleValidation)])
-        validator.registerField(descriptionTextField, rules: [RequiredRule(message: Constants.descriptionValidation)])
-        validator.registerField(productTextField, rules: [RequiredRule(message: Constants.productValidation)])
-        validator.registerField(priceTextField, rules: [RequiredRule(message: Constants.priceValidation)])
-        validator.registerField(discountTextField, rules: [RequiredRule(message: Constants.priceValidation)])
-        validator.registerField(raitingTextFiedl, rules: [RequiredRule(message: Constants.ratingValidation)])
-        validator.registerField(stockTextField, rules: [RequiredRule(message: Constants.stockValidation)])
-        validator.registerField(brandTextField, rules: [RequiredRule(message: Constants.brandValidation)])
-        validator.registerField(urlTextFiedl, rules: [RequiredRule(message: Constants.urlValidation)])
-
 
     }
     
 
     @IBAction func addProductPressed(_ sender: UIButton) {
-        validator.validate(self)
+        validationSuccessful()
 
     }
     
     func validationSuccessful() {
         createSpinnerView()
 
-        let productData = Product( id: 1, title: titleTextField.text!, description: descriptionTextField.text!, price: Int(priceTextField.text!)!, discountPercentage: Double(discountTextField.text!)!, rating: Double(raitingTextFiedl.text!)!, stock: Int(stockTextField.text!)!, brand: brandTextField.text!, category: categoryTextFiedl.text!, thumbnail: urlTextFiedl.text!, images: [urlTextFiedl.text!])
-        productRepository.addProduct(product: productData)
+        do {
+            let title = titleTextField.text ?? ""
+            let description = descriptionTextField.text ?? ""
+            let price = priceTextField.text ?? ""
+            let discountPercentage = discountTextField.text ?? ""
+            let rating = raitingTextFiedl.text ?? ""
+            let stock = stockTextField.text ?? ""
+            let brand = brandTextField.text ?? ""
+            let category = categoryTextFiedl.text ?? ""
+            let thumbnail = urlTextFiedl.text ?? ""
+            
+            let productData =  try ProductInfo.create(id: "1", title:title, description:description, price:price, discountPercentage: discountPercentage, rating: rating, stock: stock, brand:brand, category: category, thumbnail: thumbnail, images: [thumbnail])
+            productRepository.addProduct(product: productData)
+     
+        }  catch MyError.customError(let errorMessage){
+            //handle error
+            DispatchQueue.main.async {
+                self.dismissSpinner()
+            }
+            showAlert(title: Constants.errorTitle, message: errorMessage)
+        } catch {
+            DispatchQueue.main.async {
+                self.dismissSpinner()
+            }
+            showAlert(title: Constants.errorTitle, message: error.localizedDescription)
+        }
+        
+        
        
     }
-    
-    func validationFailed(_ errors: [(SwiftValidator.Validatable, SwiftValidator.ValidationError)]) {
-        var errorMessagesTotal = ""
-        
-        for (_, error) in errors {
-            errorMessagesTotal.append("\n\(error.errorMessage)")
-        
-          }
-        if !errorMessagesTotal.isEmpty {
-            showAlert(title: Constants.errorTitle, message: errorMessagesTotal)
-        }
-    }
-    
+
     func createSpinnerView() {
         addChild(spinner)
         spinner.view.frame = view.frame

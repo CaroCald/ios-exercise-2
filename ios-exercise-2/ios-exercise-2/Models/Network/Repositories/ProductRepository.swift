@@ -14,7 +14,7 @@ class ProductRepository : ApiManager {
         performRequest(urlString)
     }
     
-    func addProduct(product : Product){
+    func addProduct(product : ProductInfo){
         let urlString = "\(urlBase)products/add"
         performPost(urlString, message: product)
     }

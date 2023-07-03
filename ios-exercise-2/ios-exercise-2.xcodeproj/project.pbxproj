@@ -41,6 +41,9 @@
 		84A8EAA72A264C310014C6CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8EAA62A264C310014C6CE /* Constants.swift */; };
 		881FB12D2A4F4B4B00558ADB /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881FB12C2A4F4B4B00558ADB /* ProductInfo.swift */; };
 		881FB12F2A4F55B500558ADB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881FB12E2A4F55B500558ADB /* String.swift */; };
+		88F76A8A2A53412500F0640B /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A892A53412500F0640B /* MyError.swift */; };
+		88F76A8D2A53519B00F0640B /* Guards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A8C2A53519B00F0640B /* Guards.swift */; };
+		88F76A8F2A5352EB00F0640B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A8E2A5352EB00F0640B /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		84A8EAA62A264C310014C6CE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		881FB12C2A4F4B4B00558ADB /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		881FB12E2A4F55B500558ADB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		88F76A892A53412500F0640B /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		88F76A8C2A53519B00F0640B /* Guards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guards.swift; sourceTree = "<group>"; };
+		88F76A8E2A5352EB00F0640B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		B95F37D1E937F4FA5080C658 /* Pods_ios_exercise_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_exercise_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBCF01ACC05B3733BDD6170 /* Pods-ios-exercise-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-exercise-2.debug.xcconfig"; path = "Target Support Files/Pods-ios-exercise-2/Pods-ios-exercise-2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +174,7 @@
 		8459DDBB2A1E71A90006DEFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				88F76A8B2A53518500F0640B /* Guards */,
 				84A8EAA32A253A310014C6CE /* Extensions */,
 				84A8EAA22A2539590014C6CE /* Persistence */,
 				84A266232A200C9900E7B839 /* ApiModels */,
@@ -184,6 +191,7 @@
 				8459DDBC2A1EBF440006DEFC /* UserRequest.swift */,
 				8459DDC12A1EC1440006DEFC /* UserResponse.swift */,
 				84A8EA962A217CA60014C6CE /* UserInformation.swift */,
+				88F76A8E2A5352EB00F0640B /* UserInfo.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				84A266282A200DA300E7B839 /* ErrorApi.swift */,
+				88F76A892A53412500F0640B /* MyError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -314,6 +323,14 @@
 				881FB12E2A4F55B500558ADB /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88F76A8B2A53518500F0640B /* Guards */ = {
+			isa = PBXGroup;
+			children = (
+				88F76A8C2A53519B00F0640B /* Guards.swift */,
+			);
+			path = Guards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +461,7 @@
 				8459DDDB2A1FECE50006DEFC /* HomeViewController.swift in Sources */,
 				84A8EAA72A264C310014C6CE /* Constants.swift in Sources */,
 				881FB12F2A4F55B500558ADB /* String.swift in Sources */,
+				88F76A8D2A53519B00F0640B /* Guards.swift in Sources */,
 				881FB12D2A4F4B4B00558ADB /* ProductInfo.swift in Sources */,
 				8459DDD72A1FD7AA0006DEFC /* AlertView.swift in Sources */,
 				8459DDD52A1FCBF30006DEFC /* PasswordViewController.swift in Sources */,
@@ -461,6 +479,8 @@
 				8459DDDD2A1FFAB10006DEFC /* InfoViewController.swift in Sources */,
 				84A8EA9B2A2518080014C6CE /* TimeRepository.swift in Sources */,
 				8459DDC22A1EC1440006DEFC /* UserResponse.swift in Sources */,
+				88F76A8F2A5352EB00F0640B /* UserInfo.swift in Sources */,
+				88F76A8A2A53412500F0640B /* MyError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

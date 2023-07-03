@@ -8,10 +8,10 @@
 import UIKit
 import SwiftValidator
 
-class EditInfoViewController: UIViewController, AlertView, ValidationDelegate {
+class EditInfoViewController: UIViewController, AlertView {
    
     
-    var userInfo : UserInformation?
+    var userInfo : UserInfo?
     let validator = Validator()
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,41 +24,45 @@ class EditInfoViewController: UIViewController, AlertView, ValidationDelegate {
         
         super.viewDidLoad()
         emailTextField.text = userInfo?.email
-        nameTextField.text = userInfo?.firstName
-        adressTextField.text = userInfo?.address.address
+        nameTextField.text = userInfo?.name
+        adressTextField.text = userInfo?.address
         phoneTextField.text = userInfo?.phone
         
-        validator.registerField(emailTextField, rules: [RequiredRule(), EmailRule(message: Constants.emailValidation)])
-        validator.registerField(phoneTextField, rules: [RequiredRule(message: Constants.phoneValidation), MinLengthRule(length: 9)])
-        validator.registerField(adressTextField, rules: [RequiredRule(message: Constants.addressValidation)])
-        validator.registerField(nameTextField, rules: [RequiredRule(message: Constants.nameValidation)])
 
     }
    
     
     @IBAction func saveInfoPressed(_ sender: UIButton) {
-        validator.validate(self)
+        validationSuccessful()
 
     }
     
     
     func validationSuccessful() {
-        
-        showAlert(title: Constants.infoTitle, message: Constants.infoSuccess) { _ in
-            self.navigationController?.popViewController(animated: true)
+        do {
+            let email = emailTextField.text ?? ""
+            let name =  nameTextField.text  ?? ""
+            let adress =  adressTextField.text ?? ""
+            let phone = phoneTextField.text  ?? ""
+           
+            let infoUser =  try UserInfo.create(email: email, name: name, address: adress, phone: phone)
+            
+            showAlert(title: Constants.infoTitle, message: Constants.infoSuccess) { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+     
+        }  catch MyError.customError(let errorMessage){
+            //handle error
+          
+            showAlert(title: Constants.errorTitle, message: errorMessage)
+        } catch {
+            
+            showAlert(title: Constants.errorTitle, message: error.localizedDescription)
         }
+        
+      
     }
     
-    func validationFailed(_ errors: [(SwiftValidator.Validatable, SwiftValidator.ValidationError)]) {
-        var errorMessagesTotal = ""
-        
-        for (_, error) in errors {
-            errorMessagesTotal.append("\n\(error.errorMessage)")
-        
-          }
-        if !errorMessagesTotal.isEmpty {
-            showAlert(title: Constants.errorTitle, message: errorMessagesTotal)
-        }
-    }
+    
     
 }

@@ -17,7 +17,7 @@ class InfoViewController: UIViewController, AlertView {
     var apiManager = ApiManager()
     var authRepo = UserRepository()
     var sessionManager = SessionManager.shared
-    var userInfo : UserInformation?
+    var userInfo : UserInfo?
     let spinner = SpinnerViewController()
 
 
@@ -68,7 +68,20 @@ class InfoViewController: UIViewController, AlertView {
 
     func updateUI(userInfo : UserInformation){
         DispatchQueue.main.async {
-            self.userInfo = userInfo
+            
+            do {
+                self.userInfo = try UserInfo.create(email: userInfo.email, name: userInfo.firstName, address:userInfo.address.address, phone: userInfo.phone)
+
+         
+            }  catch MyError.customError(let errorMessage){
+                //handle error
+               
+                self.showAlert(title: Constants.errorTitle, message: errorMessage)
+            } catch {
+              
+                self.showAlert(title: Constants.errorTitle, message: error.localizedDescription)
+            }
+            
             self.emailLabel.text = "Email: \(userInfo.email)"
             self.nameLabel.text = "Nombre: \(userInfo.firstName)"
             self.adressLabel.text = "Direccion: \(userInfo.address.address)"

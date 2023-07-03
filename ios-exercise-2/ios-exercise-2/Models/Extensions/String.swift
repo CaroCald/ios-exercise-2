@@ -18,7 +18,7 @@ extension String {
     }
     
     var isAlphanumeric: Bool {
-        let notAlphanumeric = NSCharacterSet.decimalDigits.union(NSCharacterSet.letters).inverted
+        let notAlphanumeric = NSCharacterSet.whitespaces.inverted
         return rangeOfCharacter(from: notAlphanumeric, options: String.CompareOptions.literal, range: nil) == nil
     }
     
@@ -26,15 +26,17 @@ extension String {
            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
            let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        
            return emailTest.evaluate(with: self)
-       }
-    var isValidPhoneNumber: Bool {
-            let regEx = "^\\+(?:[0-9]?){6,14}[0-9]$"
-
-            let phoneCheck = NSPredicate(format: "SELF MATCHES[c] %@", regEx)
-            return phoneCheck.evaluate(with: self)
+       
+    
     }
     
+    var isValidPhoneNumber: Bool {
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+                let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+                return phoneTest.evaluate(with: self)
+       }
     
     var isValidURL: Bool {
            guard !contains("..") else { return false }
@@ -47,4 +49,12 @@ extension String {
 
            return urlTest.evaluate(with: trimmingCharacters(in: .whitespaces))
        }
+    func replace(string:String, replacement:String) -> String {
+            return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
+        }
+
+        func removeWhitespace() -> String {
+            return self.replace(string: " ", replacement: "")
+        }
+    
 }

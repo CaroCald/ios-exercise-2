@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct ProductInfo{
+struct ProductInfo: Codable  {
     
     let id: Int
     let title: String
@@ -34,54 +34,27 @@ struct ProductInfo{
         self.images = images
     }
     
-    static func create(id: Int?, title: String?, description: String?, price: Int?, discountPercentage: Double?, rating: Double?, stock: Int?, brand: String?, category: String?, thumbnail: String?, images: [String?]) throws -> ProductInfo {
+    static func create(id: String?, title: String?, description: String?, price: String?, discountPercentage: String?, rating: String?, stock: String?, brand: String?, category: String?, thumbnail: String?, images: [String]?) throws -> ProductInfo {
         
-        //validaciones longitus,etc
-        let id = try guardValidNumber(valueNumber: id)
-        let price = try guardValidNumber(valueNumber: price)
-        let title = try guardValidString(valueString: title)
-        let description = try guardValidString(valueString: description)
-        let brand = try guardValidString(valueString: brand)
-        let category = try guardValidString(valueString: category)
-        let thumbnail = try guardValidString(valueString: thumbnail)
+        //validaciones,etc
+        let id = try guardValidNumber(valueNumber: id, alert: "Ingresa un valor")
+        let title = try guardValidString(valueString: title,alert:  Constants.titleValidation)
+        let description = try guardValidString(valueString: description,alert:  Constants.descriptionValidation)
+        let price = try guardValidNumber(valueNumber: price,  alert:Constants.priceValidation )
+        let discountPercentage = try guardValidNumberDouble(valueNumber: discountPercentage,  alert:Constants.discountValidation)
+        let rating = try guardValidNumberDouble(valueNumber: rating,   alert:Constants.ratingValidation)
+        let stock = try guardValidNumber(valueNumber: stock,   alert:Constants.stockValidation)
+        let brand = try guardValidString(valueString: brand, alert:  Constants.brandValidation)
+        let category = try guardValidString(valueString: category, alert:  Constants.categoryValidation)
+        let thumbnail = try guardValidUrl(url: thumbnail, alert:  Constants.urlValidation)
+        let images = try guardValidUrlImages(url: images,   alert:Constants.urlValidation)
         
-        return ProductInfo(id: id!, title: title!, description: description!, price: price!, discountPercentage: 2.5, rating: 2.5, stock: 1, brand: brand!, category: category!, thumbnail: thumbnail!, images: [])
+        
+        return ProductInfo(id: id!, title: title!, description: description!, price: price!, discountPercentage: discountPercentage!, rating: rating!, stock: stock!, brand: brand!, category: category!, thumbnail: thumbnail!, images:images!)
     }
     
-    private static func guardValidString(valueString: String?) throws -> String? {
-        
-            if let valueString = valueString {
-                guard valueString.containsOnlyLetters else {
-
-                    throw MyError.customError(message: "Por favor ingresa solo letras")
-                }
-            }
-            return valueString
-     }
-    
-  
-    private static func guardValidNumber(valueNumber: Int?) throws -> Int? {
-        
-            if valueNumber == nil {
-                throw MyError.customError(message: "Por favor ingresa un valor")
-            }
-            return valueNumber
-     }
     
     
-    public enum MyError: Error {
-
-        case genericError
-
-        case customError(message: String)
-
-        case noConnection
-
-        case unknown
-
-    }
+    
 }
-protocol validNumber {
-    func validInt(value: Int? )
-    func validDouble(value: Double?)
-}
+

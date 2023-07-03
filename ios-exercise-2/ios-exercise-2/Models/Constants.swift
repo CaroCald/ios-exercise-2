@@ -33,6 +33,7 @@ struct Constants {
     static let stockValidation = "Stock requerido"
     static let brandValidation = "Marca requerido"
     static let urlValidation = "Url requerido"
+    static let categoryValidation = "Categoria requerida"
     static let productSucess = "Producto agregado con exito"
     
     
