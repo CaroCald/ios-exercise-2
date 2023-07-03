@@ -9,34 +9,21 @@ import Foundation
 
 // MARK: - TimeResults
 struct TimeResults: Codable {
-    let abbreviation, clientIP, datetime: String
-    let dayOfWeek, dayOfYear: Int
-    let dst: Bool
+    let abbreviation: String?
+    let clientIP: String?
+    let datetime: String?
+    let dayOfWeek, dayOfYear: Int?
+    let dst: Bool?
     let dstFrom: JSONNull?
-    let dstOffset: Int
+    let dstOffset: Int?
     let dstUntil: JSONNull?
-    let rawOffset: Int
-    let timezone: String
-    let unixtime: Int
-    let utcDatetime, utcOffset: String
-    let weekNumber: Int
+    let rawOffset: Int?
+    let timezone: String?
+    let unixtime: Int?
+    let utcDatetime: String?
+    let utcOffset: String?
+    let weekNumber: Int?
 
-    enum CodingKeys: String, CodingKey {
-        case abbreviation
-        case clientIP = "client_ip"
-        case datetime
-        case dayOfWeek = "day_of_week"
-        case dayOfYear = "day_of_year"
-        case dst
-        case dstFrom = "dst_from"
-        case dstOffset = "dst_offset"
-        case dstUntil = "dst_until"
-        case rawOffset = "raw_offset"
-        case timezone, unixtime
-        case utcDatetime = "utc_datetime"
-        case utcOffset = "utc_offset"
-        case weekNumber = "week_number"
-    }
 }
 
 // MARK: - Encode/decode helpers

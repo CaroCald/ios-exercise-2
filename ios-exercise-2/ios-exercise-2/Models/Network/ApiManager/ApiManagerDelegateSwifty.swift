@@ -1,16 +1,14 @@
 //
-//  ApiManagerDelegate.swift
+//  ApiManagerDelegateSwifty.swift
 //  ios-exercise-2
 //
-//  Created by Carolina Calderon on 24/5/23.
+//  Created by bayteq on 3/7/23.
 //
 
 import Foundation
-
-protocol ApiManagerDelegate {
+protocol ApiManagerDelegateSwifty {
     
     func apiError(with error : Error)
     func apiSucess(_ apiManager : ApiManagerSwifty , data : Data)
-    func apiSucess(_ apiManager : ApiManagerTimeSwifty , data : Data)
     func customErrorApi(with error : Data)
 }

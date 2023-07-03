@@ -10,7 +10,7 @@ import UIKit
 class PasswordViewController: UIViewController, AlertView {
 
     @IBOutlet weak var passwordTextField: UITextField!
-    var apiManager = ApiManager()
+    var apiManager = ApiManagerSwifty()
     var authRepo = UserRepository()
     var sessionManager = SessionManager.shared
     var userName : String = ""
@@ -67,7 +67,12 @@ class PasswordViewController: UIViewController, AlertView {
     }
 
 }
-extension PasswordViewController : ApiManagerDelegate {
+extension PasswordViewController : ApiManagerDelegate{
+    func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
+        //
+    }
+    
+
     func customErrorApi(with error: Data) {
         DispatchQueue.main.async{
             self.dismissSpinner()
@@ -86,7 +91,7 @@ extension PasswordViewController : ApiManagerDelegate {
         showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
-    func apiSucess(_ apiManager: ApiManager, data: Data) {
+    func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
         if let safeData : UserResponse? = ApiParser().parseJson(data, delegate: self) {
             sessionManager.createSession(userData: safeData!)
         }

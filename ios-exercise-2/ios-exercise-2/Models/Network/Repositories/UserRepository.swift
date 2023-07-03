@@ -8,16 +8,46 @@
 import Foundation
 
 
-class UserRepository : ApiManager {
-        
+class UserRepository : ApiManagerSwifty {
+
+
     func doLogin (dataUser : UserRequest){
-        let urlString = "\(urlBase)auth/login"
-        performPost(urlString, message: dataUser)
+        let urlString = "auth/login"
+            UserRepository.postRequest(with: dataUser, urlPart: urlString).load { networkResponse in
+
+                if let safeData = networkResponse.data {
+                   if let httpResponse = networkResponse.response?.statusCode {
+                       if httpResponse == 200 {
+                           self.delegate?.apiSucess(self, data: safeData)
+
+                       } else {
+                           self.delegate?.customErrorApi(with: safeData)
+
+                       }
+                    }
+                }
+                
+       
+     
+        }
+        
     }
     
     func getInfoLogin(id : Int){
-        let urlString = "\(urlBase)users/\(id)"
-        performRequest(urlString)
+        let urlString = "users/\(id)"
+        UserRepository.getRequest(urlPart: urlString).load { networkResponse in
+            if let safeData = networkResponse.data {
+               if let httpResponse = networkResponse.response?.statusCode {
+                   if httpResponse == 200 {
+                       self.delegate?.apiSucess(self, data: safeData)
+
+                   } else {
+                       self.delegate?.customErrorApi(with: safeData)
+
+                   }
+                }
+            }
+        }
     }
         
 }

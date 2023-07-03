@@ -12,7 +12,7 @@ struct ProductResponse: Codable {
     let price: Int?
     let stock: Int?
     let rating: Int?
-    let images: [String]
+    let images: [String]?
     let thumbnail: String?
     let description: String?
     let brand: String?

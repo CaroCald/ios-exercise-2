@@ -14,7 +14,7 @@ class InfoViewController: UIViewController, AlertView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    var apiManager = ApiManager()
+    var apiManager = ApiManagerSwifty()
     var authRepo = UserRepository()
     var sessionManager = SessionManager.shared
     var userInfo : UserInfo?
@@ -70,8 +70,16 @@ class InfoViewController: UIViewController, AlertView {
         DispatchQueue.main.async {
             
             do {
-                self.userInfo = try UserInfo.create(email: userInfo.email, name: userInfo.firstName, address:userInfo.address.address, phone: userInfo.phone)
-
+                self.userInfo = try UserInfo.create(email: userInfo.email, name: userInfo.firstName, address:userInfo.address?.address, phone: userInfo.phone)
+              if  let safeData = self.userInfo {
+                  self.emailLabel.text = "Email: \(safeData.email)"
+                    self.nameLabel.text = "Nombre: \(safeData.name)"
+                    self.adressLabel.text = "Direccion: \(safeData.address)"
+                    self.phoneLabel.text = "Telefono: \(safeData.phone)"
+                }
+                
+              
+                self.dismissSpinner()
          
             }  catch MyError.customError(let errorMessage){
                 //handle error
@@ -82,17 +90,19 @@ class InfoViewController: UIViewController, AlertView {
                 self.showAlert(title: Constants.errorTitle, message: error.localizedDescription)
             }
             
-            self.emailLabel.text = "Email: \(userInfo.email)"
-            self.nameLabel.text = "Nombre: \(userInfo.firstName)"
-            self.adressLabel.text = "Direccion: \(userInfo.address.address)"
-            self.phoneLabel.text = "Telefono: \(userInfo.phone)"
-            self.dismissSpinner()
+            
         }
     }
 
 }
 
 extension InfoViewController : ApiManagerDelegate {
+    func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
+        //
+    }
+    
+  
+    
     func apiError(with error: Error) {
         DispatchQueue.main.async {
             self.dismissSpinner()
@@ -100,18 +110,21 @@ extension InfoViewController : ApiManagerDelegate {
         showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
-    func apiSucess(_ apiManager: ApiManager, data: Data) {
+    func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
         if let safeData : UserInformation? = ApiParser().parseJson(data, delegate: self) {
             updateUI(userInfo: safeData!)
         }
     }
     
     func customErrorApi(with error: Data) {
-        let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
         DispatchQueue.main.async {
             self.dismissSpinner()
         }
-        showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
+        if let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self){
+            showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
+        }
+       
+        
     }
     
 }

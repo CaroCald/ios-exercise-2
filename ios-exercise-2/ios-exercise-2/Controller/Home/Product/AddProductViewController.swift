@@ -90,6 +90,11 @@ class AddProductViewController: UIViewController, AlertView {
     
 }
 extension AddProductViewController : ApiManagerDelegate {
+   
+    func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
+        //
+    }
+    
     func apiError(with error: Error) {
         DispatchQueue.main.async {
             self.dismissSpinner()
@@ -97,7 +102,7 @@ extension AddProductViewController : ApiManagerDelegate {
         showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
-    func apiSucess(_ apiManager: ApiManager, data: Data) {
+    func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
     
         if let safeData : ProductResponse? = ApiParser().parseJson(data, delegate: self) {
             print(safeData!)

@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, AlertView {
-    var apiManager = ApiManager()
+    var apiManager = ApiManagerTimeSwifty()
     var sessionManager = SessionManager.shared
     let timeRepository = TimeRepository()
     let spinner = SpinnerViewController()
@@ -46,10 +46,16 @@ class HomeViewController: UIViewController, AlertView {
         }
 }
 
-extension HomeViewController :  ApiManagerDelegate {
-    func apiSucess(_ apiManager: ApiManager, data: Data) {
+extension HomeViewController :  ApiManagerDelegate{
+    
+    func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
+        //
+    }
+    
+    
+    func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
         if let timeResponse : TimeResults? = ApiParser().parseJson(data, delegate: self) {
-            if let dateInitial = timeResponse?.datetime.toDate() {
+            if let dateInitial = timeResponse?.datetime?.toDate() {
                 DispatchQueue.main.async {
                     self.dateLabel.text = dateInitial.toString()
                     self.hourLabel.text = dateInitial.toString(withFormat: "HH:mm:ss")

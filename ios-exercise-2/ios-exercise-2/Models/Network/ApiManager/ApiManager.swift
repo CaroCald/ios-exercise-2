@@ -39,7 +39,7 @@ class ApiManager {
                     if let safeData = data {
                        if let httpResponse = response as? HTTPURLResponse {
                            if httpResponse.statusCode == 200 {
-                               self.delegate?.apiSucess(self, data: safeData)
+                               //self.delegate?.apiSucess(self, data: safeData)
 
                            } else {
                                self.delegate?.customErrorApi(with: safeData)
@@ -75,7 +75,7 @@ class ApiManager {
                 if let safeData = data {
                     if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 200 {
-                            self.delegate?.apiSucess(self, data: safeData)
+                         //   self.delegate?.apiSucess(self, data: safeData)
 
                         } else {
                             self.delegate?.customErrorApi(with: safeData)

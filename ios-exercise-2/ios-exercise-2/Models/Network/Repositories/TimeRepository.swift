@@ -7,8 +7,21 @@
 
 import Foundation
 
-class TimeRepository : ApiManager {
+class TimeRepository : ApiManagerTimeSwifty{
+    
     func getTime (){
-       performRequest(urlBaseTime)
+        TimeRepository.getRequest(urlPart: "America/Guayaquil").load { networkResponse in
+            if let safeData = networkResponse.data {
+               if let httpResponse = networkResponse.response?.statusCode {
+                   if httpResponse == 200 {
+                       self.delegate?.apiSucess(self, data: safeData)
+
+                   } else {
+                       self.delegate?.customErrorApi(with: safeData)
+
+                   }
+                }
+            }
+        }
     }
 }

@@ -68,6 +68,11 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
 }
 
 extension ProductListViewController : ApiManagerDelegate {
+   
+    func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
+        //
+    }
+    
     
     func apiError(with error: Error) {
         DispatchQueue.main.async {
@@ -76,7 +81,7 @@ extension ProductListViewController : ApiManagerDelegate {
         showAlert(title: Constants.errorTitle, message: error.localizedDescription)
     }
     
-    func apiSucess(_ apiManager: ApiManager, data: Data) {
+    func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
         if let safeData : ProductList? = ApiParser().parseJson(data, delegate: self) {
             arrayProducts = safeData!.products
             DispatchQueue.main.async {

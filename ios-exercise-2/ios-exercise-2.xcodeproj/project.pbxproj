@@ -44,6 +44,8 @@
 		88F76A8A2A53412500F0640B /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A892A53412500F0640B /* MyError.swift */; };
 		88F76A8D2A53519B00F0640B /* Guards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A8C2A53519B00F0640B /* Guards.swift */; };
 		88F76A8F2A5352EB00F0640B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A8E2A5352EB00F0640B /* UserInfo.swift */; };
+		88F76A912A53623A00F0640B /* ApiManagerSwifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A902A53623A00F0640B /* ApiManagerSwifty.swift */; };
+		88F76A952A5375AA00F0640B /* ApiManagerTimeSwifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F76A942A5375AA00F0640B /* ApiManagerTimeSwifty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		88F76A892A53412500F0640B /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		88F76A8C2A53519B00F0640B /* Guards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guards.swift; sourceTree = "<group>"; };
 		88F76A8E2A5352EB00F0640B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		88F76A902A53623A00F0640B /* ApiManagerSwifty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerSwifty.swift; sourceTree = "<group>"; };
+		88F76A942A5375AA00F0640B /* ApiManagerTimeSwifty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerTimeSwifty.swift; sourceTree = "<group>"; };
 		B95F37D1E937F4FA5080C658 /* Pods_ios_exercise_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_exercise_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBCF01ACC05B3733BDD6170 /* Pods-ios-exercise-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-exercise-2.debug.xcconfig"; path = "Target Support Files/Pods-ios-exercise-2/Pods-ios-exercise-2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +216,8 @@
 				8459DDC82A1EC6800006DEFC /* ApiParser.swift */,
 				8459DDC62A1EC3EF0006DEFC /* ApiManagerDelegate.swift */,
 				8459DDC42A1EC2CC0006DEFC /* ApiManager.swift */,
+				88F76A902A53623A00F0640B /* ApiManagerSwifty.swift */,
+				88F76A942A5375AA00F0640B /* ApiManagerTimeSwifty.swift */,
 			);
 			path = ApiManager;
 			sourceTree = "<group>";
@@ -462,10 +468,12 @@
 				84A8EAA72A264C310014C6CE /* Constants.swift in Sources */,
 				881FB12F2A4F55B500558ADB /* String.swift in Sources */,
 				88F76A8D2A53519B00F0640B /* Guards.swift in Sources */,
+				88F76A912A53623A00F0640B /* ApiManagerSwifty.swift in Sources */,
 				881FB12D2A4F4B4B00558ADB /* ProductInfo.swift in Sources */,
 				8459DDD72A1FD7AA0006DEFC /* AlertView.swift in Sources */,
 				8459DDD52A1FCBF30006DEFC /* PasswordViewController.swift in Sources */,
 				84A8EA9D2A25184A0014C6CE /* ProductRepository.swift in Sources */,
+				88F76A952A5375AA00F0640B /* ApiManagerTimeSwifty.swift in Sources */,
 				8415A1162A203B18007545AD /* EditInfoViewController.swift in Sources */,
 				8459DDC72A1EC3EF0006DEFC /* ApiManagerDelegate.swift in Sources */,
 				8459DDC52A1EC2CC0006DEFC /* ApiManager.swift in Sources */,
