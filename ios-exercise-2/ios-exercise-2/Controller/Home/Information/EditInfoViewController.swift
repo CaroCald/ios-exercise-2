@@ -45,7 +45,7 @@ class EditInfoViewController: UIViewController, AlertView {
             let adress =  adressTextField.text ?? ""
             let phone = phoneTextField.text  ?? ""
            
-            let infoUser =  try UserInfo.create(email: email, name: name, address: adress, phone: phone)
+            _ =  try UserInfo.create(email: email, name: name, address: adress, phone: phone)
             
             showAlert(title: Constants.infoTitle, message: Constants.infoSuccess) { _ in
                 self.navigationController?.popViewController(animated: true)

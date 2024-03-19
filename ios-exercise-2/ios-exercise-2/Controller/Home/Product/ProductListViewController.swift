@@ -82,7 +82,7 @@ extension ProductListViewController : ApiManagerDelegate {
     }
     
     func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
-        if let safeData : ProductList? = ApiParser().parseJson(data, delegate: self) {
+        if let safeData : ProductListResponse? = ApiParser().parseJson(data, delegate: self) {
             arrayProducts = safeData!.products
             DispatchQueue.main.async {
                 self.dismissSpinner()

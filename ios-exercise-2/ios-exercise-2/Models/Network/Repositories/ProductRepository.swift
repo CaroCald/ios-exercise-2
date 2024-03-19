@@ -11,38 +11,36 @@ class ProductRepository : ApiManagerSwifty {
     
     func getProductsList(){
         let urlString = "products"
-        ProductRepository.getRequest(urlPart: urlString).load { networkResponse in
+        ProductRepository.getRequest(urlPart: urlString, canUseConstraint: true).load { networkResponse in
             if let safeData = networkResponse.data {
-               if let httpResponse = networkResponse.response?.statusCode {
-                   if httpResponse == 200 {
-                       self.delegate?.apiSucess(self, data: safeData)
-
-                   } else {
-                       self.delegate?.customErrorApi(with: safeData)
-
-                   }
+                if let httpResponse = networkResponse.response?.statusCode {
+                    if httpResponse == 200 {
+                        self.delegate?.apiSucess(self, data: safeData)
+                        
+                    } else {
+                        self.delegate?.customErrorApi(with: safeData)
+                        
+                    }
                 }
-            }        }
+            }
+        }
     }
     
     func addProduct(product : ProductInfo){
         let urlString = "products/add"
         ProductRepository.postRequest(with: product, urlPart: urlString).load { networkResponse in
-
+            
             if let safeData = networkResponse.data {
-               if let httpResponse = networkResponse.response?.statusCode {
-                   if httpResponse == 200 {
-                       self.delegate?.apiSucess(self, data: safeData)
-
-                   } else {
-                       self.delegate?.customErrorApi(with: safeData)
-
-                   }
+                if let httpResponse = networkResponse.response?.statusCode {
+                    if httpResponse == 200 {
+                        self.delegate?.apiSucess(self, data: safeData)
+                        
+                    } else {
+                        self.delegate?.customErrorApi(with: safeData)
+                        
+                    }
                 }
             }
-            
-   
- 
-    }
+        }
     }
 }

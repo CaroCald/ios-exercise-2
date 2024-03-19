@@ -23,4 +23,17 @@ struct ApiParser {
         
     }
     
+    func parseJson <T : Decodable> (_ data : Data) -> T? {
+        
+        let decoder = JSONDecoder()
+        do {
+            let decodedData =  try decoder.decode(T.self, from: data)
+            return decodedData
+            
+        } catch {
+            return nil
+        }
+        
+    }
+    
 }

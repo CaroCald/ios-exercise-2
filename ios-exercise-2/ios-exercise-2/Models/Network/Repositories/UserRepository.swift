@@ -9,45 +9,45 @@ import Foundation
 
 
 class UserRepository : ApiManagerSwifty {
-
-
+    
+    
     func doLogin (dataUser : UserRequest){
         let urlString = "auth/login"
-            UserRepository.postRequest(with: dataUser, urlPart: urlString).load { networkResponse in
-
-                if let safeData = networkResponse.data {
-                   if let httpResponse = networkResponse.response?.statusCode {
-                       if httpResponse == 200 {
-                           self.delegate?.apiSucess(self, data: safeData)
-
-                       } else {
-                           self.delegate?.customErrorApi(with: safeData)
-
-                       }
+        UserRepository.postRequest(with: dataUser, urlPart: urlString).load { networkResponse in
+            if let safeData = networkResponse.data {
+                if let httpResponse = networkResponse.response?.statusCode {
+                    if httpResponse == 200 {
+                        self.delegate?.apiSucess(self, data: safeData)
+                        
+                    } else {
+                        self.delegate?.customErrorApi(with: safeData)
+                        
                     }
                 }
-                
-       
-     
+            }
         }
         
     }
     
     func getInfoLogin(id : Int){
         let urlString = "users/\(id)"
-        UserRepository.getRequest(urlPart: urlString).load { networkResponse in
+        UserRepository.getRequest(urlPart: urlString, canUseConstraint: false).load { networkResponse in
             if let safeData = networkResponse.data {
-               if let httpResponse = networkResponse.response?.statusCode {
-                   if httpResponse == 200 {
-                       self.delegate?.apiSucess(self, data: safeData)
-
-                   } else {
-                       self.delegate?.customErrorApi(with: safeData)
-
-                   }
+                if let httpResponse = networkResponse.response?.statusCode {
+                    if httpResponse == 200 {
+                        self.delegate?.apiSucess(self, data: safeData)
+                        
+                    } else {
+                        self.delegate?.customErrorApi(with: safeData)
+                        
+                    }
                 }
             }
         }
     }
-        
+    
+    
+    //get current user
+    // listado de productos añadir constraint y llamar el auth token
+    //finish puede enviar error si falla
 }

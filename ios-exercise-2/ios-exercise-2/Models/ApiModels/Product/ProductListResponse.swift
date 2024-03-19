@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductList: Codable {
+struct ProductListResponse: Codable {
     let products: [Product]
     let total: Int?
     let skip: Int?

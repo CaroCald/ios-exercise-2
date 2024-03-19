@@ -81,9 +81,7 @@ class InfoViewController: UIViewController, AlertView {
               
                 self.dismissSpinner()
          
-            }  catch MyError.customError(let errorMessage){
-                //handle error
-               
+            }  catch MyError.customError(let errorMessage){               
                 self.showAlert(title: Constants.errorTitle, message: errorMessage)
             } catch {
               
@@ -100,8 +98,6 @@ extension InfoViewController : ApiManagerDelegate {
     func apiSucess(_ apiManager: ApiManagerTimeSwifty, data: Data) {
         //
     }
-    
-  
     
     func apiError(with error: Error) {
         DispatchQueue.main.async {
