@@ -235,11 +235,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="8KN-92-fhy"/>
                     <connections>
+                        <outlet property="addProductBtn" destination="Wlt-Mo-wze" id="hyv-tY-VbG"/>
                         <outlet property="tableViewProducts" destination="nh0-GF-Thu" id="Hky-5N-785"/>
                         <segue destination="EYO-U7-bdc" kind="show" identifier="goToAddProduct" id="dqe-hg-WOb"/>
+                        <segue destination="Itq-ob-HzJ" kind="unwind" identifier="unwindToViewController" unwindAction="unwindToViewControllerWithSegue:" id="6eV-ui-wc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGA-4i-aoy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Itq-ob-HzJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2480" y="803"/>
         </scene>
@@ -452,7 +455,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Cerrar sesion"/>
                                         <connections>
-                                            <segue destination="UYh-bZ-ZOA" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="VHX-zm-56K"/>
+                                            <segue destination="UYh-bZ-ZOA" kind="unwind" identifier="" unwindAction="unwindToViewControllerWithSegue:" id="VHX-zm-56K"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -620,7 +623,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DYu-z9-SZa"/>
+        <segue reference="8Oc-i9-TU1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock.fill" catalog="system" width="128" height="123"/>

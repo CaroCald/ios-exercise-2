@@ -9,11 +9,9 @@ import Foundation
 public enum MyError: Error {
 
     case genericError
-
     case customError(message: String)
-
     case noConnection
-
     case unknown
+    case constraintTokenError
 
 }

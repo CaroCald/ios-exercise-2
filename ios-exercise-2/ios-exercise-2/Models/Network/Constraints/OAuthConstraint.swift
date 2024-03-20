@@ -28,12 +28,16 @@ class OAuthConstraint: Constraint {
                         if let safeDataAuth : UserResponse? = ApiParser().parseJson(safeData) {
                            
                             OAuthConstraint.refreshToken = safeDataAuth!.firstName
+                            self.sessionManager.saveRefreshToken(token: OAuthConstraint.refreshToken!)
                             self.finish(with: nil)
+                        }else{
+                            self.finish(with: MyError.constraintTokenError)
                         }
                        
                     } else {
-                        self.finish(with: MyError.customError(message: "ocurrio un error con la peticion"))
                         
+                        self.finish(with: MyError.constraintTokenError)
+                    
                     }
                 }
             }

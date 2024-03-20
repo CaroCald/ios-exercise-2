@@ -24,6 +24,9 @@ class UserRepository : ApiManagerSwifty {
                         
                     }
                 }
+            }else{
+                let error = networkResponse.error
+                self.delegate?.apiError(with: error ?? MyError.customError(message: "Error peticion"))
             }
         }
         
@@ -42,6 +45,9 @@ class UserRepository : ApiManagerSwifty {
                         
                     }
                 }
+            }else{
+                let error = networkResponse.error
+                self.delegate?.apiError(with: error ?? MyError.customError(message: "Error peticion"))
             }
         }
     }

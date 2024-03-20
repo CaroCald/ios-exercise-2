@@ -14,7 +14,9 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
     let productRepository = ProductRepository()
     let spinner = SpinnerViewController()
     var arrayProducts : [Product] = []
+    var sessionManager = SessionManager.shared
     
+    @IBOutlet weak var addProductBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class ProductListViewController: UIViewController, AlertView , UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         createSpinnerView()
+        self.addProductBtn.isEnabled = true
         productRepository.getProductsList()
     }
     
@@ -75,10 +78,28 @@ extension ProductListViewController : ApiManagerDelegate {
     
     
     func apiError(with error: Error) {
+    
         DispatchQueue.main.async {
             self.dismissSpinner()
+            self.addProductBtn.isEnabled = false
         }
-        showAlert(title: Constants.errorTitle, message: error.localizedDescription)
+        
+        if let errorReceived = error as? MyError {
+
+            if case .constraintTokenError  = errorReceived {
+                showAlert(title: Constants.errorTitle, message: "Error con la peticion, necesita hacer login nuevamente"){ _ in
+                    self.sessionManager.closeSession()
+                    self.performSegue(withIdentifier: "unwindToViewController", sender: self)
+                }
+            }else{
+                showAlert(title: Constants.errorTitle, message: error.localizedDescription)
+            }
+          
+        }
+        else {
+            showAlert(title: Constants.errorTitle, message: error.localizedDescription)
+        }
+       
     }
     
     func apiSucess(_ apiManager: ApiManagerSwifty, data: Data) {
@@ -95,8 +116,10 @@ extension ProductListViewController : ApiManagerDelegate {
         let safeData : ErrorApi? = ApiParser().parseJson(error, delegate: self)
         DispatchQueue.main.async {
             self.dismissSpinner()
+            self.addProductBtn.isEnabled = false
         }
         showAlert(title: Constants.errorTitle, message: safeData?.message ?? "" )
+     
     }
     
     
