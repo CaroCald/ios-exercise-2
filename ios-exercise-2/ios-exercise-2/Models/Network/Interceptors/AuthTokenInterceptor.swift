@@ -11,7 +11,7 @@ class AuthTokenInterceptor: ApiManagerSwifty, ResponseInterceptor {
     let sessionManager = SessionManager.shared
 
     func intercept(response: NetworkResponse) -> NetworkResponse {
-        if let statusCode = response.response?.url, statusCode.absoluteString.contains("auth/login") {
+        if let statusCode = response.response?.url, statusCode.absoluteString.contains(Constants.urlStringLogin) {
             
             if let safeResponse = response.data {
                 if let safeData : UserResponse? = ApiParser().parseJson(safeResponse) {

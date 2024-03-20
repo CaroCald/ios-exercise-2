@@ -36,5 +36,7 @@ struct Constants {
     static let categoryValidation = "Categoria requerida"
     static let productSucess = "Producto agregado con exito"
     
+    static let urlStringLogin = "auth/login"
+    
     
 }

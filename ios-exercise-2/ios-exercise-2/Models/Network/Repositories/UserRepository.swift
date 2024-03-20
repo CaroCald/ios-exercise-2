@@ -12,8 +12,8 @@ class UserRepository : ApiManagerSwifty {
     
     
     func doLogin (dataUser : UserRequest){
-        let urlString = "auth/login"
-        UserRepository.postRequest(with: dataUser, urlPart: urlString).load { networkResponse in
+       
+        UserRepository.postRequest(with: dataUser, urlPart: Constants.urlStringLogin).load { networkResponse in
             if let safeData = networkResponse.data {
                 if let httpResponse = networkResponse.response?.statusCode {
                     if httpResponse == 200 {
