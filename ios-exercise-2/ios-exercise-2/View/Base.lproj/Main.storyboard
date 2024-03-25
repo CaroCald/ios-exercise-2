@@ -19,6 +19,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfQ-ty-t0W">
                                 <rect key="frame" x="20" y="132" width="374" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="welcomeLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7kZ-EC-4xK"/>
                                 </constraints>
@@ -37,6 +38,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QK9-TB-pwL">
                                 <rect key="frame" x="20" y="322" width="374" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="txtUser"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GfD-kg-35d"/>
                                 </constraints>
@@ -45,6 +47,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebK-Ds-5g7">
                                 <rect key="frame" x="20" y="402" width="374" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btnUserContinue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2Xw-XD-XNn"/>
                                 </constraints>
@@ -102,6 +105,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UML-XJ-luC">
                                 <rect key="frame" x="30" y="332" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="txtPassword"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="t8O-44-h8C"/>
                                 </constraints>
@@ -110,6 +114,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xe-CP-WcH">
                                 <rect key="frame" x="20" y="392" width="374" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btnPasswordContinue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="yn5-su-6mm"/>
                                 </constraints>
@@ -122,6 +127,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5a7-5E-aOc"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="passwordScreen"/>
                         <constraints>
                             <constraint firstItem="HcP-cH-kuc" firstAttribute="top" secondItem="5a7-5E-aOc" secondAttribute="top" constant="190" id="0Yd-2k-bfs"/>
                             <constraint firstItem="HcP-cH-kuc" firstAttribute="leading" secondItem="5a7-5E-aOc" secondAttribute="leading" constant="20" id="0cG-gz-nSe"/>
@@ -154,6 +160,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-x2-QQt">
                                 <rect key="frame" x="30" y="122" width="354" height="50"/>
+                                <accessibility key="accessibilityConfiguration" identifier="usernameLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ore-jK-AK3"/>
                                 </constraints>
@@ -163,6 +170,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAB-WI-cBr">
                                 <rect key="frame" x="30" y="262" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="dateLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iUR-x6-X5h"/>
                                 </constraints>
@@ -172,6 +180,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hora" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVf-pQ-jGr">
                                 <rect key="frame" x="30" y="202" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="hourLabel"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0EA-Wu-hX5"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="5Ue-qo-maN"/>
@@ -183,6 +192,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6nd-xq-Guh"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="homeScreen"/>
                         <constraints>
                             <constraint firstItem="JVf-pQ-jGr" firstAttribute="leading" secondItem="6nd-xq-Guh" secondAttribute="leading" constant="30" id="69o-2O-Non"/>
                             <constraint firstItem="RAB-WI-cBr" firstAttribute="top" secondItem="JVf-pQ-jGr" secondAttribute="bottom" constant="30" id="6y8-eg-w3L"/>
@@ -480,6 +490,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIY-XV-gNd">
                                 <rect key="frame" x="30" y="382" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="editButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Cga-Jo-eJY"/>
                                 </constraints>
@@ -491,6 +502,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvy-Hi-YYR">
                                 <rect key="frame" x="30" y="442" width="354" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="logoutButton"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Zr-cX-sWb"/>
                                 </constraints>
@@ -563,6 +575,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5Q-E3-wzQ">
                                                 <rect key="frame" x="0.0" y="50.5" width="374" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="txtEmail"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -574,6 +587,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cpu-C0-2as">
                                                 <rect key="frame" x="0.0" y="165" width="374" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="txtName"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -585,6 +599,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCm-c9-vKN">
                                                 <rect key="frame" x="0.0" y="279.5" width="374" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="txtAddress"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -596,11 +611,13 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDu-AZ-QgN">
                                                 <rect key="frame" x="0.0" y="394" width="374" height="34"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="txtCellPhone"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-sD-1WJ">
                                                 <rect key="frame" x="0.0" y="458" width="374" height="34.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="saveEditUserButton"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Guardar"/>
                                                 <connections>
@@ -623,6 +640,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dKJ-Wm-Mir"/>
                         <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="editScreen"/>
                         <constraints>
                             <constraint firstItem="dKJ-Wm-Mir" firstAttribute="trailing" secondItem="eZv-5q-skL" secondAttribute="trailing" constant="20" id="FIN-T5-JpA"/>
                             <constraint firstItem="eZv-5q-skL" firstAttribute="top" secondItem="dKJ-Wm-Mir" secondAttribute="top" id="bbp-yr-0gE"/>
