@@ -15,7 +15,10 @@ class AuthTokenInterceptor: ApiManagerSwifty, ResponseInterceptor {
             
             if let safeResponse = response.data {
                 if let safeData : UserResponse? = ApiParser().parseJson(safeResponse) {
-                    sessionManager.saveToken(token: (safeData?.token)!)
+                    if let safeToken = safeData?.token {
+                        sessionManager.saveToken(token: safeToken)
+                    }
+                    
                 }
             }
            

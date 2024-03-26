@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct AccessibilityIdentifier {
+struct TestIdentifiers {
    
     static let welcomeLabel = "welcomeLabel"
     static let userTextField = "txtUser"
@@ -32,4 +32,5 @@ struct TestFailureMessage {
     static let usernameLabelNotFound = "User label not found"
     static let hourLabelNotFound = "Hour label not found"
     static let dateLabelNotFound = "Date label not found"
+    static let alertError = "Alert not found"
 }

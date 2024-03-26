@@ -16,44 +16,56 @@ final class ios_exercise_2UITests: XCTestCase {
         continueAfterFailure = false
         app.launch()
     }
+    
+    func testSetCredentialsForLogin(user : String, password : String) throws{
+        XCTAssertTrue(app.staticTexts[TestIdentifiers.welcomeLabel].exists, TestFailureMessage.welcomeLabelNotFound)
+
+        let userField = app.textFields[TestIdentifiers.userTextField]
+        XCTAssertTrue(userField.exists, TestFailureMessage.userTextFieldlNotFound)
+        userField.tap()
+        userField.typeText(user)
+
+        let userButton = app.buttons[TestIdentifiers.userButton]
+        XCTAssertTrue(userButton.exists, TestFailureMessage.userButtonNotFound)
+        userButton.tap()
+
+        XCTAssertTrue(app.otherElements[TestIdentifiers.passwordScreen].exists, TestFailureMessage.passwordScreenNotFound)
+        
+        let passwordField = app.secureTextFields[TestIdentifiers.passwordTextField]
+        XCTAssertTrue(passwordField.exists, TestFailureMessage.passwordTextFieldNotFound)
+        passwordField.tap()
+        passwordField.typeText(password)
+
+        let passwordButton = app.buttons[TestIdentifiers.passwordButton]
+        XCTAssertTrue(passwordButton.exists, TestFailureMessage.passwordButtonNotFound)
+        passwordButton.tap()
+    }
+    
     func testLoginSuccessFlow() throws {
-        
-            XCTAssertTrue(app.staticTexts[AccessibilityIdentifier.welcomeLabel].exists, TestFailureMessage.welcomeLabelNotFound)
-
-            let userField = app.textFields[AccessibilityIdentifier.userTextField]
-            XCTAssertTrue(userField.exists, TestFailureMessage.userTextFieldlNotFound)
-            userField.tap()
-            userField.typeText("kminchelle")
-
-            let userButton = app.buttons[AccessibilityIdentifier.userButton]
-            XCTAssertTrue(userButton.exists, TestFailureMessage.userButtonNotFound)
-            userButton.tap()
-
-            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.passwordScreen].exists, TestFailureMessage.passwordScreenNotFound)
-            
-            let passwordField = app.secureTextFields[AccessibilityIdentifier.passwordTextField]
-            XCTAssertTrue(passwordField.exists, TestFailureMessage.passwordTextFieldNotFound)
-            passwordField.tap()
-            passwordField.typeText("0lelplR")
-
-            let passwordButton = app.buttons[AccessibilityIdentifier.passwordButton]
-            XCTAssertTrue(passwordButton.exists, TestFailureMessage.passwordButtonNotFound)
-            passwordButton.tap()
-        
-            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.homeScreen].waitForExistence(timeout: 5), TestFailureMessage.homeScreenNotFound)
+        try testSetCredentialsForLogin(user: "kminchelle", password: "0lelplR")
+        XCTAssertTrue(app.otherElements[TestIdentifiers.homeScreen].waitForExistence(timeout: 4), TestFailureMessage.homeScreenNotFound)
             
         }
+ 
+    
+    func testLoginErrorFlow() throws {
+        try testSetCredentialsForLogin(user: "f", password: "f")
+            let errorAlert = app.alerts["Error"]
+            XCTAssertTrue(errorAlert.waitForExistence(timeout: 4), TestFailureMessage.alertError)
+            errorAlert.scrollViews.otherElements.buttons["Ok"].tap()
+            
+    }
 
     
     func testSavedSession() throws {
        
-        let usernameLabel = app.staticTexts[AccessibilityIdentifier.usernameLabel]
+        let usernameLabel = app.staticTexts[TestIdentifiers.usernameLabel]
         XCTAssertTrue(usernameLabel.exists, TestFailureMessage.usernameLabelNotFound)
        
-        let hourLabel = app.staticTexts[AccessibilityIdentifier.hourLabel]
+        let hourLabel = app.staticTexts[TestIdentifiers.hourLabel]
         XCTAssertTrue(hourLabel.exists, TestFailureMessage.hourLabelNotFound)
         
-        let dateLabel = app.staticTexts[AccessibilityIdentifier.dateLabel]
+        let dateLabel = app.staticTexts[TestIdentifiers.dateLabel]
         XCTAssertTrue(dateLabel.exists, TestFailureMessage.dateLabelNotFound)
     }
     
