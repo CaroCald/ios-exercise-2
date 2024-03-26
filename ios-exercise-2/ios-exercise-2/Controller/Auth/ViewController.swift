@@ -14,7 +14,7 @@ class ViewController: UIViewController, AlertView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userTextField.delegate = self
+        userTextField?.delegate = self
     
         // check if user data is stored
         if sessionManager.getUserInfo() != nil {

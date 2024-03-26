@@ -11,10 +11,39 @@ final class ios_exercise_2UITests: XCTestCase {
 
   
     let app = XCUIApplication()
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
         app.launch()
     }
+    func testLoginSuccessFlow() throws {
+        
+            XCTAssertTrue(app.staticTexts[AccessibilityIdentifier.welcomeLabel].exists, TestFailureMessage.welcomeLabelNotFound)
+
+            let userField = app.textFields[AccessibilityIdentifier.userTextField]
+            XCTAssertTrue(userField.exists, TestFailureMessage.userTextFieldlNotFound)
+            userField.tap()
+            userField.typeText("kminchelle")
+
+            let userButton = app.buttons[AccessibilityIdentifier.userButton]
+            XCTAssertTrue(userButton.exists, TestFailureMessage.userButtonNotFound)
+            userButton.tap()
+
+            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.passwordScreen].exists, TestFailureMessage.passwordScreenNotFound)
+            
+            let passwordField = app.secureTextFields[AccessibilityIdentifier.passwordTextField]
+            XCTAssertTrue(passwordField.exists, TestFailureMessage.passwordTextFieldNotFound)
+            passwordField.tap()
+            passwordField.typeText("0lelplR")
+
+            let passwordButton = app.buttons[AccessibilityIdentifier.passwordButton]
+            XCTAssertTrue(passwordButton.exists, TestFailureMessage.passwordButtonNotFound)
+            passwordButton.tap()
+        
+            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.homeScreen].waitForExistence(timeout: 5), TestFailureMessage.homeScreenNotFound)
+            
+        }
+
     
     func testSavedSession() throws {
        
@@ -56,45 +85,7 @@ final class ios_exercise_2UITests: XCTestCase {
         app.alerts["Información"].scrollViews.otherElements.buttons["Ok"].tap()
                 
     }
-    
-    
-    func testLoginSuccessFlow() throws {
-        
-            XCTAssertTrue(app.staticTexts[AccessibilityIdentifier.welcomeLabel].exists, TestFailureMessage.welcomeLabelNotFound)
 
-            let userField = app.textFields[AccessibilityIdentifier.userTextField]
-            XCTAssertTrue(userField.exists, TestFailureMessage.userTextFieldlNotFound)
-            userField.tap()
-            userField.typeText("kminchelle")
-
-
-            let userButton = app.buttons[AccessibilityIdentifier.userButton]
-            XCTAssertTrue(userButton.exists, TestFailureMessage.userButtonNotFound)
-            userButton.tap()
-
-            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.passwordScreen].exists, TestFailureMessage.passwordScreenNotFound)
-            
-            let passwordField = app.secureTextFields[AccessibilityIdentifier.passwordTextField]
-            XCTAssertTrue(passwordField.exists, TestFailureMessage.passwordTextFieldNotFound)
-            passwordField.tap()
-            passwordField.typeText("0lelplR")
-
-            let passwordButton = app.buttons[AccessibilityIdentifier.passwordButton]
-            XCTAssertTrue(passwordButton.exists, TestFailureMessage.passwordButtonNotFound)
-            passwordButton.tap()
-        
-            XCTAssertTrue(app.otherElements[AccessibilityIdentifier.homeScreen].waitForExistence(timeout: 5), TestFailureMessage.homeScreenNotFound)
-            
-        }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
 }
 extension XCUIElement {
     /**
