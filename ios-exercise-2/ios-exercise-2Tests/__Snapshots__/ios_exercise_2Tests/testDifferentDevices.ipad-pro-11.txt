@@ -1,0 +1,12 @@
+<UIView; frame = (0 0; 1194 834); autoresize = W+H; backgroundColor = UIExtendedSRGBColorSpace 0.101961 0.737255 0.611765 1; layer = <CALayer>>
+   | <UILabel; frame = (20 94; 1154 40); text = 'Bienvenido'; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <_UILabelLayer>>
+   | <UILabel; frame = (20 234; 1194 20); text = 'Usuario'; opaque = NO; autoresize = RM+BM; userInteractionEnabled = NO; layer = <_UILabelLayer>>
+   | <UITextField; frame = (20 284; 1154 30); text = ''; opaque = NO; autoresize = RM+BM; gestureRecognizers = <NSArray>; borderStyle = RoundedRect; background = <_UITextFieldSystemBackgroundProvider: backgroundView=<_UITextFieldRoundedRectBackgroundViewNeue; frame = (0 0; 1154 30); opaque = NO; autoresize = W+H; userInteractionEnabled = NO; backgroundColor = <UIDynamicSystemColor; name = _textFieldBackgroundColor>; layer = <CALayer>>, fillColor=(null), textfield=<UITextField>>; layer = <CALayer>>
+   |    | <_UITextFieldRoundedRectBackgroundViewNeue; frame = (0 0; 1154 30); opaque = NO; autoresize = W+H; userInteractionEnabled = NO; backgroundColor = <UIDynamicSystemColor; name = _textFieldBackgroundColor>; layer = <CALayer>>
+   |    | <_UITouchPassthroughView; frame = (0 0; 1058 26); layer = <CALayer>>
+   |    | <_UITextLayoutCanvasView; frame = (7 2; 1140 26); layer = <CALayer>>
+   |    |    | <_UITextLayoutFragmentView; frame = (0 4.66667; 0 17); opaque = NO; layer = <CALayer>>
+   | <UIButton; frame = (20 364; 1154 30); opaque = NO; autoresize = RM+BM; gestureRecognizers = <NSArray>; layer = <CALayer>> configuration=<UIButtonConfiguration> baseStyle=filled macStyle=automatic buttonSize=medium cornerStyle=dynamic title=<>:'Continuar' contentInsets=default imagePlacement=leading imagePadding=0 titlePadding=1 titleAlignment=automatic background=<UIBackgroundConfiguration; Base Style = Custom; cornerRadius = 5.95; backgroundColor = kCGColorSpaceModelRGB 0 0.478431 1 1 >
+   |    | <_UISystemBackgroundView; frame = (0 0; 1154 30); userInteractionEnabled = NO; layer = <CALayer>; configuration = <UIBackgroundConfiguration; Base Style = Custom; cornerRadius = 6; backgroundColor = kCGColorSpaceModelRGB 0 0.478431 1 1 >>
+   |    |    | <UIView; frame = (0 0; 1154 30); clipsToBounds = YES; backgroundColor = kCGColorSpaceModelRGB 0 0.478431 1 1 ; layer = <CALayer>>
+   |    | <UILabel; frame = (539.667 4.66667; 74.3333 20.3333); text = 'Continuar'; userInteractionEnabled = NO; backgroundColor = UIExtendedGrayColorSpace 0 0; layer = <_UILabelLayer>>

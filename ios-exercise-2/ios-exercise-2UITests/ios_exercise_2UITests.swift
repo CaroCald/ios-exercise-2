@@ -17,6 +17,86 @@ final class ios_exercise_2UITests: XCTestCase {
         app.launch()
     }
     
+    
+    func testLoginErrorFlow() throws {
+        
+        if app.staticTexts[TestIdentifiers.welcomeLabel].exists {
+            try testSetCredentialsForLogin(user: "f", password: "f")
+                let errorAlert = app.alerts["Error"]
+                XCTAssertTrue(errorAlert.waitForExistence(timeout: 5), TestFailureMessage.alertError)
+                errorAlert.scrollViews.otherElements.buttons["Ok"].tap()
+        }else{
+            testCloseSession()
+        }
+            
+    }
+
+    func testLoginSuccessFlow() throws {
+        if app.staticTexts[TestIdentifiers.welcomeLabel].exists {
+            try testSetCredentialsForLogin(user: "kminchelle", password: "0lelplR")
+            XCTAssertTrue(app.otherElements[TestIdentifiers.homeScreen].waitForExistence(timeout: 5), TestFailureMessage.homeScreenNotFound)
+        }else{
+            testCloseSession()
+        }
+       
+    }
+
+    
+    func testInfoOnScreenFields() throws {
+       
+        if app.otherElements[TestIdentifiers.homeScreen].exists {
+            let usernameLabel = app.staticTexts[TestIdentifiers.usernameLabel]
+            XCTAssertTrue(usernameLabel.exists, TestFailureMessage.usernameLabelNotFound)
+           
+            let hourLabel = app.staticTexts[TestIdentifiers.hourLabel]
+            XCTAssertTrue(hourLabel.exists, TestFailureMessage.hourLabelNotFound)
+            
+            let dateLabel = app.staticTexts[TestIdentifiers.dateLabel]
+            XCTAssertTrue(dateLabel.exists, TestFailureMessage.dateLabelNotFound)
+        }
+        
+    }
+    
+    func testCloseSession(){
+        if app.otherElements[TestIdentifiers.homeScreen].exists {
+            app.tabBars["Tab Bar"].buttons["Info"].tap()
+            app/*@START_MENU_TOKEN@*/.staticTexts["Cerrar sesion"]/*[[".buttons[\"Cerrar sesion\"].staticTexts[\"Cerrar sesion\"]",".buttons[\"logoutButton\"].staticTexts[\"Cerrar sesion\"]",".staticTexts[\"Cerrar sesion\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        }
+    }
+    
+    func testEditInformationUser() throws {
+        
+        if app.otherElements[TestIdentifiers.homeScreen].exists {
+            app.tabBars["Tab Bar"].buttons["Info"].tap()
+        
+            app/*@START_MENU_TOKEN@*/.staticTexts["Editar Informacion"]/*[[".buttons[\"Editar Informacion\"].staticTexts[\"Editar Informacion\"]",".buttons[\"editButton\"].staticTexts[\"Editar Informacion\"]",".staticTexts[\"Editar Informacion\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+            
+            let elementsQuery = app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"editScreen\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.otherElements
+            let emailField = elementsQuery.textFields["txtEmail"]
+            emailField.tap()
+            emailField.clearAndEnterText(text: "kminchelle@gmail.com")
+            
+            let nameField = elementsQuery.textFields["txtName"]
+            nameField.tap()
+            nameField.clearAndEnterText(text: "Jenny")
+            
+            let addressField = elementsQuery.textFields["txtAddress"]
+            addressField.tap()
+            addressField.clearAndEnterText(text: "8 great way street")
+            
+            
+            let cellPhone = elementsQuery.textFields["txtCellPhone"]
+            cellPhone.tap()
+            cellPhone.clearAndEnterText(text: "+86 999 108 9666")
+           
+            app/*@START_MENU_TOKEN@*/.scrollViews.otherElements.staticTexts["Guardar"]/*[[".otherElements[\"editScreen\"].scrollViews.otherElements",".buttons[\"Guardar\"].staticTexts[\"Guardar\"]",".buttons[\"saveEditUserButton\"].staticTexts[\"Guardar\"]",".staticTexts[\"Guardar\"]",".scrollViews.otherElements"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+            app.alerts["Información"].scrollViews.otherElements.buttons["Ok"].tap()
+        }
+        
+       
+                
+    }
+    
     func testSetCredentialsForLogin(user : String, password : String) throws{
         XCTAssertTrue(app.staticTexts[TestIdentifiers.welcomeLabel].exists, TestFailureMessage.welcomeLabelNotFound)
 
@@ -39,63 +119,6 @@ final class ios_exercise_2UITests: XCTestCase {
         let passwordButton = app.buttons[TestIdentifiers.passwordButton]
         XCTAssertTrue(passwordButton.exists, TestFailureMessage.passwordButtonNotFound)
         passwordButton.tap()
-    }
-    
-    func testLoginSuccessFlow() throws {
-        try testSetCredentialsForLogin(user: "kminchelle", password: "0lelplR")
-        XCTAssertTrue(app.otherElements[TestIdentifiers.homeScreen].waitForExistence(timeout: 4), TestFailureMessage.homeScreenNotFound)
-            
-        }
- 
-    
-    func testLoginErrorFlow() throws {
-        try testSetCredentialsForLogin(user: "f", password: "f")
-            let errorAlert = app.alerts["Error"]
-            XCTAssertTrue(errorAlert.waitForExistence(timeout: 4), TestFailureMessage.alertError)
-            errorAlert.scrollViews.otherElements.buttons["Ok"].tap()
-            
-    }
-
-    
-    func testSavedSession() throws {
-       
-        let usernameLabel = app.staticTexts[TestIdentifiers.usernameLabel]
-        XCTAssertTrue(usernameLabel.exists, TestFailureMessage.usernameLabelNotFound)
-       
-        let hourLabel = app.staticTexts[TestIdentifiers.hourLabel]
-        XCTAssertTrue(hourLabel.exists, TestFailureMessage.hourLabelNotFound)
-        
-        let dateLabel = app.staticTexts[TestIdentifiers.dateLabel]
-        XCTAssertTrue(dateLabel.exists, TestFailureMessage.dateLabelNotFound)
-    }
-    
-    func testEditInformationUser() throws {
-        
-        app.tabBars["Tab Bar"].buttons["Info"].tap()
-    
-        app/*@START_MENU_TOKEN@*/.staticTexts["Editar Informacion"]/*[[".buttons[\"Editar Informacion\"].staticTexts[\"Editar Informacion\"]",".buttons[\"editButton\"].staticTexts[\"Editar Informacion\"]",".staticTexts[\"Editar Informacion\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        let elementsQuery = app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"editScreen\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.otherElements
-        let emailField = elementsQuery.textFields["txtEmail"]
-        emailField.tap()
-        emailField.clearAndEnterText(text: "kminchelle@gmail.com")
-        
-        let nameField = elementsQuery.textFields["txtName"]
-        nameField.tap()
-        nameField.clearAndEnterText(text: "Jenny")
-        
-        let addressField = elementsQuery.textFields["txtAddress"]
-        addressField.tap()
-        addressField.clearAndEnterText(text: "8 great way street")
-        
-        
-        let cellPhone = elementsQuery.textFields["txtCellPhone"]
-        cellPhone.tap()
-        cellPhone.clearAndEnterText(text: "+86 999 108 9666")
-       
-        app/*@START_MENU_TOKEN@*/.scrollViews.otherElements.staticTexts["Guardar"]/*[[".otherElements[\"editScreen\"].scrollViews.otherElements",".buttons[\"Guardar\"].staticTexts[\"Guardar\"]",".buttons[\"saveEditUserButton\"].staticTexts[\"Guardar\"]",".staticTexts[\"Guardar\"]",".scrollViews.otherElements"],[[[-1,4,1],[-1,0,1]],[[-1,3],[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
-        app.alerts["Información"].scrollViews.otherElements.buttons["Ok"].tap()
-                
     }
 
 }

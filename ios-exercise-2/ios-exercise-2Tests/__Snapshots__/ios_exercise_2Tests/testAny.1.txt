@@ -1,0 +1,3 @@
+▿ UserRequest
+  - password: "test"
+  - username: "test"
