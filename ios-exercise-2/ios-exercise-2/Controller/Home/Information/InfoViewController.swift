@@ -29,8 +29,11 @@ class InfoViewController: UIViewController, AlertView {
     
     override func viewWillAppear(_ animated: Bool) {
         createSpinnerView()
-        authRepo.getInfoLogin(id: sessionManager.getUserInfo()!.id!)
-    }
+        if  let safeData = sessionManager.getUserInfo()?.id{
+            authRepo.getInfoLogin(id: safeData)
+        }
+        }
+        
     
     func createSpinnerView() {
             addChild(spinner)

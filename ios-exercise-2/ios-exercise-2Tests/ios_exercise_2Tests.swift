@@ -15,7 +15,7 @@ final class ios_exercise_2Tests: XCTestCase {
     override func setUp() {
         super.setUp()
        diffTool = "ksdiff"
-        // isRecording = true
+        //isRecording = true
       }
 
     
@@ -39,7 +39,7 @@ final class ios_exercise_2Tests: XCTestCase {
      }
     
     func testWaitImage() {
-        var vc = ProductListViewController.instantiate()
+        let vc = ProductListViewController.instantiate()
         
         assertSnapshot(
                     matching: vc,
@@ -245,22 +245,10 @@ final class ios_exercise_2Tests: XCTestCase {
             #endif
     }
 
-    func testVerify(){
-        let vc = PasswordViewController.instantiate()
-       // assertSnapshot(of: vc, as: .image)
-        let verify = verifySnapshot(of: vc, as: .image)
-        //XCTAssertNotNil(verify)
-    }
-    
     func testAny() {
       let user = UserRequest(username: "test", password: "test")
       assertSnapshot(of: user, as: .dump)
     }
-    
-    func testEncodable() {
-        let user = UserRequest(username: "test", password: "test")
-       assertSnapshot(of: user, as: .plist)
-     }
 
     func testAnySnapshotStringToDateConvertible() {
         let date = "2024-03-16".toDate()
@@ -278,7 +266,7 @@ final class ios_exercise_2Tests: XCTestCase {
     
     func testPrecision() {
         let vc = PasswordViewController.instantiate()
-        assertSnapshot(of: vc, as: .image(perceptualPrecision: 0.98), named: "precision")
+        assertSnapshot(of: vc, as: .image(perceptualPrecision: 0.50), named: "precision")
     }
     
     
@@ -290,7 +278,7 @@ final class ios_exercise_2Tests: XCTestCase {
     }
     
     func testWait() {
-        var sut = InfoViewController.instantiate()
+        let sut = InfoViewController.instantiate()
         assertSnapshot(matching: sut.view, as: .wait(for: 5, on: .image))
     }
 

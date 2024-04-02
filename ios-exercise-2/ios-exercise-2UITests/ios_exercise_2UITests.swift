@@ -25,9 +25,8 @@ final class ios_exercise_2UITests: XCTestCase {
                 let errorAlert = app.alerts["Error"]
                 XCTAssertTrue(errorAlert.waitForExistence(timeout: 5), TestFailureMessage.alertError)
                 errorAlert.scrollViews.otherElements.buttons["Ok"].tap()
-        }else{
-            testCloseSession()
         }
+        
             
     }
 
@@ -35,10 +34,7 @@ final class ios_exercise_2UITests: XCTestCase {
         if app.staticTexts[TestIdentifiers.welcomeLabel].exists {
             try testSetCredentialsForLogin(user: "kminchelle", password: "0lelplR")
             XCTAssertTrue(app.otherElements[TestIdentifiers.homeScreen].waitForExistence(timeout: 5), TestFailureMessage.homeScreenNotFound)
-        }else{
-            testCloseSession()
         }
-       
     }
 
     
